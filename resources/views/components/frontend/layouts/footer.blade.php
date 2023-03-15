@@ -10,7 +10,7 @@
                 </div>
                 <!-- end col-4 -->
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.10s">
-                    <figure><img src="{{asset('frontAssets/images/footer-icon2.png')}}" alt="Image"></figure>
+                    <figure><img src="{{asset('frontAssets/images/footer-icon02.png')}}" alt="Image"></figure>
                     <h3>Working Hours</h3>
                     <p>From Saturday to Thursday from<br> <strong>4:00</strong> - <strong>10:00</strong> PM, and
                         Friday is <strong>off</strong></p>
