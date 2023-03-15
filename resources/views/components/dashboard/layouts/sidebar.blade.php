@@ -19,41 +19,6 @@
             @if(auth()->user()->can('roles'))
             <li class=" navigation-header"><span>{{__('dashboard.main settings')}}</span></li>
             @endif
-{{--            @can('admins')--}}
-{{--                <li class=" nav-item"><a href="#"><i class="fa fa-male fa-2x"></i>  <span class="menu-title" data-i18n="User">{{__('dashboard.admins')}}</span></a>--}}
-{{--                    <ul class="menu-content">--}}
-{{--                        <li class=""><a href="{{route('admin.admins.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.admins list')}}</span></a>--}}
-{{--                        @can('add admin')--}}
-{{--                        <li class=""><a href="{{route('admin.admins.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.add admin')}}</span></a>--}}
-{{--                            @endcan--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
-
-            {{--@can('roles')
-                <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title" data-i18n="Data List">{{__('dashboard.roles')}}</span></a>
-                    <ul class="menu-content">
-                        @can('roles')
-                        <li class="{{Route::is('admin.roles.index')? 'active':''}}"><a href="{{route('admin.roles.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List View">{{__('dashboard.roles list')}}</span></a>
-                        </li>
-                        @endcan
-                        @can('add role')
-                        <li class="{{Route::is('admin.roles.create')? 'active':''}}"><a href="{{route('admin.roles.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Thumb View">{{__('dashboard.add roles')}}</span></a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
-            @endcan--}}
-
-{{--            @can('users')--}}
-{{--                <li class=" nav-item"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User">{{__('dashboard.users')}}</span></a>--}}
-{{--                    <ul class="menu-content">--}}
-{{--                        <li class="{{Route::is('admin.customers.index')? 'active':''}}"><a href="{{route('admin.customers.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.users list')}}</span></a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
 
             <li class=" nav-item"><a href="#"><i class="feather icon-briefcase"></i><span class="menu-title" data-i18n="Ecommerce">{{__('dashboard.services')}}</span></a>
                 <ul class="menu-content">
@@ -81,32 +46,6 @@
                        </li>
                   </ul>
               </li>
-
-
-             <li class=" nav-item"><a href="#"><i class="feather icon-filter"></i><span class="menu-title" data-i18n="User">{{__('dashboard.our works')}}</span></a>
-                  <ul class="menu-content">
-                       <li class="{{Route::is('admin.works.index')? 'active':''}}"><a href="{{route('admin.works.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.our works')}}</span></a>
-                       </li>
-                  </ul>
-             </li>
-
-             <li class=" nav-item"><a href="#"><i class="feather icon-users"></i><span class="menu-title" data-i18n="User">{{__('dashboard.review')}}</span></a>
-                 <ul class="menu-content">
-                      <li class="{{Route::is('admin.review.index')? 'active':''}}"><a href="{{route('admin.review.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.review')}}</span></a>
-                     </li>
-                      <li class="{{Route::is('admin.review.create')? 'active':''}}"><a href="{{route('admin.review.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">{{__('dashboard.add review')}}</span></a>
-                     </li>
-                 </ul>
-             </li>
-
-
-{{--            <li class=" nav-item"><a href="#"><i class="feather icon-filter"></i><span class="menu-title" data-i18n="User">{{__('dashboard.our works')}}</span></a>--}}
-{{--                <ul class="menu-content">--}}
-{{--                    <li class="{{Route::is('admin.works.index')? 'active':''}}"><a href="{{route('admin.works.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">{{__('dashboard.our works')}}</span></a>--}}
-{{--                   </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-
 
             <li class=" navigation-header"><span></span>
             </li>

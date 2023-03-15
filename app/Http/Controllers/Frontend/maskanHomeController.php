@@ -46,7 +46,8 @@ class maskanHomeController extends Controller
 
     public function sponsors()
     {
-        return view('front.sponsors');
+        $sponsors = Group::all();
+        return view('front.sponsors', ['sponsors' => $sponsors]);
     }
 
     public function contact()

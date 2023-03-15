@@ -310,9 +310,9 @@ return [
     'Discover More' => 'اكتشف اكثر',
     'table icon' => 'الايقونه',
     'table image2' => 'الصوره-2',
-    'media'=>'المركز الاعلامى',
-    'add media'=>'اضافة مركز اعلامى',
-    'edit media'=>'تعديل مركز اعلامى',
+    'media'=>'معرض الصور',
+    'add media'=>'اضافة في المعرض ',
+    'edit media'=>'تعديل المعرض ',
     'select icon' => 'اختر ايقونه'
 
 ];

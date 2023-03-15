@@ -45,24 +45,20 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'link' => ['required','string'],
             'title_ar' => ['required','string'],
             'title_en' => ['required','string'],
-            'description_ar' => ['required','string'],
-            'description_en' => ['required','string'],
         ];
 
-        $validator = Validator::make($request->except(['_token','image','active']),$rules);
+        $validator = Validator::make($request->all(),$rules);
         if($validator->fails()){
             return back()->withInput()->withErrors($validator->errors());
         }
-        $data = $request->except(['_token','image','active']);
+        $data = $request->except(['_token','image']);
 
         if($request->hasFile('image')){
             $imageName = $this->storeImageByPath($request->file('image'),'frontAssets/images/sponsors');
             $data['image'] = $imageName;
         }
-        $data['active'] = $request->active ? 1 : 0 ;
 
         Group::create($data);
         return back()->with(['success'=>__('dashboard.item added successfully')]);
@@ -100,23 +96,19 @@ class GroupController extends Controller
     public function update(Request $request, Group $group)
     {
         $rules = [
-            'link' => ['required','string'],
             'title_ar' => ['required','string'],
             'title_en' => ['required','string'],
-            'description_ar' => ['required','string'],
-            'description_en' => ['required','string'],
         ];
 
-        $validator = Validator::make($request->except(['_token','image','active']),$rules);
+        $validator = Validator::make($request->all(),$rules);
         if($validator->fails()){
             return back()->withInput()->withErrors($validator->errors());
         }
-        $data = $request->except(['_token','image','active']);
+        $data = $request->except(['_token','image']);
         if($request->hasFile('image')){
             $imageName = $this->storeImageByPath($request->file('image'),'frontAssets/images/sponsors');
             $data['image'] = $imageName;
         }
-        $data['active'] = $request->active ? 1 : 0 ;
 
         $group->update($data);
         return redirect()->route('admin.groups.index')->with(['success'=>__('dashboard.item updated successfully')]);
