@@ -44,7 +44,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::get('services','services')->name('front.services');
         Route::get('service-details/{id}','serviceDetails')->name('front.services.show');
         Route::get('team','team')->name('front.team');
-        Route::get('media','gallery')->name('front.gallery');
+        Route::get('gallery','gallery')->name('front.gallery');
         Route::get('sponsors','sponsors')->name('front.sponsors');
         Route::get('contact','contact')->name('front.contact');
         Route::get('about','about')->name('front.about');

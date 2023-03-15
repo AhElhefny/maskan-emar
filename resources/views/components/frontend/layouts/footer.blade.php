@@ -53,7 +53,7 @@
                 <ul class="footer-menu">
                     <li style=" color: #FFF; font-size: 20px; font-weight: 700; padding: 0; line-height: 1; margin-bottom: 20px; ">Links</li>
                     <li><a href="{{route('front.gallery')}}">Gallery</a></li>
-                    <li><a href="{{route('front.sponsors')}}l">Sponsors</a></li>
+                    <li><a href="{{route('front.sponsors')}}">Sponsors</a></li>
                     <li><a href="{{route('front.contact')}}">Contact</a></li>
                 </ul>
             </div>
