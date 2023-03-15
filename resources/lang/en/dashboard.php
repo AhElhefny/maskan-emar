@@ -266,6 +266,8 @@ return [
     'add team'=>'Add Team',
     'edit team'=>'Edit Team',
     'twitter link'=>'Twitter Link',
+    'linkedIn link'=>'LinkedIn Link',
+    'facebook link'=>'Facebook Link',
     'website link'=>'Website Link',
     'behance link'=>'Behance Link',
     'groups' =>'Groups',
@@ -314,7 +316,7 @@ return [
     'select icon' => 'Select Icon',
     'manage slider' => 'Manage Slider',
     'edit personal information' => 'Edit Personal Information',
-    
+
 
 
 ];

@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateTeamsTable extends Migration
 {
-   
+
     public function up()
     {
-        
+
         Schema::create('teams', function (Blueprint $table) {
 
             $table->id();
@@ -17,11 +17,11 @@ class CreateTeamsTable extends Migration
             $table->string('name_en');
             $table->text('description_ar')->nullable();
             $table->text('description_en')->nullable();
-            $table->string('twitter')->nullable();
+            $table->string('linkedin')->nullable();
             $table->string('website')->nullable();
-            $table->string('behance')->nullable();
-            $table->text('job_ar');
-            $table->text('job_en');
+            $table->string('facebook')->nullable();
+            $table->text('job_ar')->nullable();
+            $table->text('job_en')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
 

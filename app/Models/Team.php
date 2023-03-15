@@ -24,4 +24,6 @@ class Team extends Model
         'job_ar'
     ];
 
+
+
 }

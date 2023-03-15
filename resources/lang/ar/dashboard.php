@@ -268,6 +268,8 @@ return [
      'edit team'=>'تعديل فريق عمل',
      'twitter link'=>' لينك تويتر',
      'website link'=>'الويب سايت',
+     'linkedIn link'=>' لينك لينكد اين',
+     'facebook link'=>'لينك فيسبوك',
      'behance link'=>'لينك بيهانس',
     'groups' => 'شركائنا' ,
     'manage groups' => 'إدارة الشركاء' ,

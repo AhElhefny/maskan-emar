@@ -35,7 +35,8 @@ class maskanHomeController extends Controller
 
     public function team()
     {
-        return view('front.team');
+        $teams = Team::all();
+        return view('front.team', ['teams' => $teams]);
     }
 
     public function gallery()

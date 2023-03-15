@@ -15,20 +15,7 @@ class GeneralSettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            ['key' => 'nav1_ar', 'value' => 'الرئيسيه'],
-            ['key' => 'nav1_en', 'value' => 'Home'],
-            ['key' => 'nav2_ar', 'value' => 'من نحن'],
-            ['key' => 'nav2_en', 'value' => 'About us'],
-            ['key' => 'nav3_ar', 'value' => 'الخدمات'],
-            ['key' => 'nav3_en', 'value' => 'Services'],
-            ['key' => 'nav4_ar', 'value' => 'فريق العمل'],
-            ['key' => 'nav4_en', 'value' => 'Team'],
-            ['key' => 'nav5_ar', 'value' => 'الاعمال'],
-            ['key' => 'nav5_en', 'value' => 'Works'],
-            ['key' => 'nav6_ar', 'value' => 'وسائط التشغيل'],
-            ['key' => 'nav6_en', 'value' => 'Media'],
-            ['key' => 'nav7_ar', 'value' => 'اتصل بنا'],
-            ['key' => 'nav7_en', 'value' => 'Contact us'],
+
             ['key' => 'video_link', 'value' => 'https://www.youtube.com/watch?v=0WC-tD-njcA'],
             ['key' => 'preview_background3', 'value' => '00_reviews.jpg'],
             ['key' => 'video_background4', 'value' => '01_video.jpg'],
@@ -53,7 +40,6 @@ class GeneralSettingSeeder extends Seeder
             ['key' => 'website_name_ar', 'value' => 'نبراس فيلم'],
             ['key' => 'website_name_en', 'value' => 'Nebras Film'],
             ['key' => 'contact_number', 'value' => '123458896895'],
-            ['key' => 'copyright', 'value' => '<p><strong>Copyright </strong>&amp; 2023 <a href="https://badee.com.sa/" target="_blank"><strong><em><u>Badee </u></em></strong></a>Website By Nebras Films</p>'],
 
         ];
         GeneralSetting::insert($settings);
