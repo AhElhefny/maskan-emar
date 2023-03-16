@@ -1,3 +1,4 @@
+@php use App\Models\GeneralSetting; @endphp
 <x-frontend.layouts.master>
     <!-- Header Page -->
     <x-frontend.layouts.breadcrumb title="Contact US">
@@ -9,7 +10,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 wow fadeInUp">
                     <h4><span>Contact Us</span></h4>
-                    <small>Get Every Updates </small>
+                    <small> {{GeneralSetting::getValueForKey('contact_title_en')}}</small>
                 </div>
                 <!-- end col-6 -->
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
@@ -36,7 +37,7 @@
                         <!-- end pattern-bg -->
                         <div class="holder" data-stellar-ratio="1.07">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1855.735609881844!2d39.2402563!3d21.5284224!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d346727010b1%3A0x6bb8546070278fc!2z2LTYsdmD2Kkg2YXYs9mD2YYg2KXYudmF2KfYsSDZhNmE2KrYt9mI2YrYsSDYp9mE2LnZgtin2LHZig!5e0!3m2!1sar!2seg!4v1678873711913!5m2!1sar!2seg"
+                                src="{{GeneralSetting::getValueForKey('contact_map_iframe')}}"
                                 allowfullscreen></iframe>
                         </div>
                         <!-- end holder -->
@@ -46,26 +47,31 @@
                 <!-- end col-6 -->
                 <div class="col-lg-6">
                     <div class="contact-form">
-                        <form id="contact" name="contact" method="post">
+                        <form id="contact" name="contact" method="post" action="{{route('contactUs.store')}}">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" name="name" id="name" autocomplete="off" required>
+                                <input type="text" name="name" id="name" autocomplete="off" value="{{old('name')}}" required>
                                 <span>Your name</span>
                             </div>
+
                             <!-- end form-group -->
                             <div class="form-group">
-                                <input type="text" name="email" id="email" autocomplete="off" required>
+                                <input type="text" name="email" id="email" autocomplete="off" value="{{old('email')}}" required>
                                 <span>Your e-mail</span>
                             </div>
+
                             <!-- end form-group -->
                             <div class="form-group">
-                                <input type="text" name="subject" id="subject" autocomplete="off" required>
+                                <input type="text" name="subject" id="subject" autocomplete="off"  value="{{old('subject')}}" required>
                                 <span>Subject</span>
                             </div>
+
                             <!-- end form-group -->
                             <div class="form-group">
-                                <textarea name="message" id="message" autocomplete="off" required></textarea>
+                                <textarea name="feedBack" id="message" autocomplete="off" required>{{old('feedBack')}}</textarea>
                                 <span>Your message</span>
                             </div>
+
                             <!-- end form-group -->
                             <div class="form-group">
                                 <button id="submit" type="submit" name="submit">
@@ -76,11 +82,22 @@
                         </form>
                         <!-- end form -->
                         <div class="form-group">
-                            <div id="success" class="alert alert-success wow fadeInUp" role="alert"> Your message
-                                was sent successfully! We will be in touch as soon as we can. </div>
+                            @if(session()->has('success'))
+                                <div class="alert alert-success wow fadeInUp" role="alert"> Your message
+                                    was sent successfully! We will be in touch as soon as we can. </div>
+                            @endif
+                                @if($errors->any())
+                                    <div class="alert alert-danger wow fadeInUp" role="alert">
+                                        <ul>
+                                            @foreach($errors->all() as $e)
+                                                <li>{{$e}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             <!-- end success -->
-                            <div id="error" class="alert alert-danger wow fadeInUp" role="alert"> Something went
-                                wrong, try refreshing and submitting the form again. </div>
+                                <div id="error" class="alert alert-danger wow fadeInUp" role="alert"> Something went
+                                    wrong, try refreshing and submitting the form again. </div>
                             <!-- end error -->
                         </div>
                         <!-- end form-group -->

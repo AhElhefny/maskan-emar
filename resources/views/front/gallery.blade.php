@@ -17,54 +17,11 @@
                         <li><a href="javascript:void(0);" data-filter=".three">SPACES</a></li>
                     </ul>
                     <ul class="gallery">
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="two"><a href="{{ asset('frontAssets/images/gallery-thumb07.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb07.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="three"><a href="{{ asset('frontAssets/images/gallery-thumb02.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb02.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb04.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb04.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="two"><a href="{{ asset('frontAssets/images/gallery-thumb03.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb03.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="three"><a href="{{ asset('frontAssets/images/gallery-thumb09.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb09.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="two"><a href="{{ asset('frontAssets/images/gallery-thumb10.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb10.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="three"><a href="{{ asset('frontAssets/images/gallery-thumb05.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb05.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb11.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb11.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="two"><a href="{{ asset('frontAssets/images/gallery-thumb12.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb12.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="three"><a href="{{ asset('frontAssets/images/gallery-thumb07.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb07.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb01.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="two"><a href="{{ asset('frontAssets/images/gallery-thumb03.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb03.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb11.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb11.jpg') }}"
-                                    alt="Image"></a></li>
-                        <li class="one"><a href="{{ asset('frontAssets/images/gallery-thumb08.jpg') }}"
-                                data-fancybox><img src="{{ asset('frontAssets/images/gallery-thumb08.jpg') }}"
-                                    alt="Image"></a></li>
+                        @foreach ($galleries as $gallery)
+                            <li class="{{$gallery->name_en == 'interior' ? 'one':($gallery->name_en == 'building' ? 'two' : 'three')}}"><a href="{{ $gallery->image }}"
+                                    data-fancybox><img src="{{ $gallery->image }}"
+                                        alt="Image"></a></li>
+                        @endforeach
                     </ul>
                 </div>
                 <!-- end col-12 -->

@@ -5,6 +5,7 @@ use App\Http\services\HelperTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\Media;
 
@@ -38,7 +39,8 @@ class MediaController extends Controller
     {
 
         $rules = [
-            'image' => ['required','image']
+            'image' => ['required','image'],
+            'name_en' => ['required',Rule::in(['interior','building','spaces'])]
         ];
 
         $validator = Validator::make($request->all(),$rules);
@@ -46,6 +48,13 @@ class MediaController extends Controller
             return back()->withInput()->withErrors($validator->errors());
         }
         $data = $request->except(['_token']);
+        if ($request->name_en == 'spaces'){
+            $data['name_ar'] = 'مساحات';
+        }elseif ($request->name_en == 'building'){
+            $data['name_ar'] = 'مباني';
+        }else{
+            $data['name_ar'] = 'داخلي';
+        }
 
         if($request->file('image')){
 
@@ -77,8 +86,7 @@ class MediaController extends Controller
     {
 
         $rules = [
-            'name_ar' => ['required','min:5'],
-            'name_en' => ['required','min:100'],
+            'name_en' => ['required',Rule::in(['interior','building','spaces'])]
         ];
 
         $validator = Validator::make($request->all(),$rules);

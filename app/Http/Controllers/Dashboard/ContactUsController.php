@@ -7,6 +7,7 @@ use App\Http\services\HelperTrait;
 use App\Models\ContactUs;
 use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 
 class ContactUsController extends Controller
@@ -30,12 +31,21 @@ class ContactUsController extends Controller
 
     public function store(Request $request)
     {
-
+        $rules = [
+            'name' => ['required','min:3','max:100'],
+            'email' => ['required','email','max:100'],
+            'subject' => ['required','min:10','max:100'],
+            'feedBack' => ['required','min:10'],
+        ];
+        $validator = Validator::make($request->all(),$rules);
+        if ($validator->fails()){
+            return back()->withInput()->withErrors($validator->errors());
+        }
         $data = $request->except(['_token']);
-        
+
         ContactUs::create($data);
 
-        return response()->json(['success'=>'message sent successfully']);
+        return back()->with(['success'=>'']);
     }
 
 

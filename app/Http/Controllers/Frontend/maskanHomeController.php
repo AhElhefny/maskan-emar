@@ -41,7 +41,8 @@ class maskanHomeController extends Controller
 
     public function gallery()
     {
-        return view('front.gallery');
+        $gallery = Media::all();
+        return view('front.gallery',['galleries' => $gallery]);
     }
 
     public function sponsors()

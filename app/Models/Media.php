@@ -13,10 +13,10 @@ class Media extends Model
     protected $guarded = [''];
     protected $appends=['name'];
     public $folder ='media';
-    protected $hidden = [
+    // protected $hidden = [
 
-        'name_ar',
-        'name_en'
-    ];
+    //     'name_ar',
+    //     'name_en'
+    // ];
 
 }

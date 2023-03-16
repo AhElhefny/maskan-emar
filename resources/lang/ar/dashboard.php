@@ -313,6 +313,11 @@ return [
     'media'=>'معرض الصور',
     'add media'=>'اضافة في المعرض ',
     'edit media'=>'تعديل المعرض ',
-    'select icon' => 'اختر ايقونه'
+    'select icon' => 'اختر ايقونه',
+    'spaces' => 'مساحات',
+    'building' => 'مباني',
+    'interior' => 'داخلي',
+    'all area' => 'الكل',
+    '' => '',
 
 ];

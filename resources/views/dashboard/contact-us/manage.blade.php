@@ -67,17 +67,17 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <fieldset class="form-group position-relative has-icon-left input-divider-left">
-                                                            <input type="url" class="form-control" id="iconLeft3" name="type[contact_instagram]" value="{{old("type[contact_instagram]",GeneralSetting::getValueForKey('contact_instagram'))}}" placeholder="Instagram" required>
+                                                            <input type="url" class="form-control" id="iconLeft3" name="type[contact_google]" value="{{old("type[contact_google]",GeneralSetting::getValueForKey('contact_google'))}}" placeholder="Google" required>
                                                             <div class="form-control-position">
-                                                                <i class="feather icon-instagram"></i>
+                                                                <i class="fab fa-google-plus-g"></i>
                                                             </div>
                                                         </fieldset>
                                                     </div>
                                                     <div class="col-6">
                                                         <fieldset class="form-group position-relative has-icon-left input-divider-left">
-                                                            <input type="url" class="form-control" name="type[contact_whats_up]" value="{{old("type[contact_whats_up]",GeneralSetting::getValueForKey('contact_whats_up'))}}" id="iconLeft3" placeholder="Whats up" required>
+                                                            <input type="url" class="form-control" name="type[contact_youtube]" value="{{old("type[contact_youtube]",GeneralSetting::getValueForKey('contact_youtube'))}}" id="iconLeft3" placeholder="Youtube" required>
                                                             <div class="form-control-position">
-                                                                <i class="fab fa-whatsapp"></i>
+                                                                <i class="fab fa-youtube"></i>
                                                             </div>
                                                         </fieldset>
                                                     </div>

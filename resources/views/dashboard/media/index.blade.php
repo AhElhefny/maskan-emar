@@ -43,10 +43,7 @@
  </div>
 <!-- END: Content-->
 @section('script')
-{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>--}}
-{{--        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
-{{--    <script src="{{asset('dashboardAssets/assets/js/arabicFont.js')}}"></script>--}}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
         <script>
 
             // window.jsPDF = window.jspdf.jsPDF;
@@ -71,12 +68,12 @@
                         {data:'image',render:function(data){
                           return  `<img width="100" height="80" src="${data}">`
                         }},
-                       
+
                         {data: 'created_at', name:'created_at'},
                         {data: 'id',
                             render:function (data,two,three){
                                 let edit ='media/'+data+'/edit';
-                             
+
                                return `<div class="btn-group">
                                     <div class="dropdown">
                                         <button class="btn btn-flat-dark dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton700" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

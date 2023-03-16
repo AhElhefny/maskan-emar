@@ -316,6 +316,11 @@ return [
     'select icon' => 'Select Icon',
     'manage slider' => 'Manage Slider',
     'edit personal information' => 'Edit Personal Information',
+    'spaces' => 'spaces',
+    'building' => 'building',
+    'interior' => 'interior',
+    'all area' => 'all area',
+    '' => '',
 
 
 
