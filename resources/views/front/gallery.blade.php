@@ -2,7 +2,7 @@
 
 
     <!-- Header Page -->
-    <x-frontend.layouts.breadcrumb title="Our Gallery">
+    <x-frontend.layouts.breadcrumb title="{{__('dashboard.gallery')}}">
     </x-frontend.layouts.breadcrumb>
 
     <!-- Gallery Page -->

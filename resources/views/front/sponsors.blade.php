@@ -2,7 +2,7 @@
 
 
     <!-- Header Page -->
-    <x-frontend.layouts.breadcrumb title="Sponsors">
+    <x-frontend.layouts.breadcrumb title="{{__('dashboard.sponsors')}}">
     </x-frontend.layouts.breadcrumb>
 
 

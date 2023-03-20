@@ -37,52 +37,18 @@
                                 @enderror
                             </div>
                         </div>
-
-                            <div class=" col-6">
-                             {{--   <label for="type['website_name_en']">{{__('dashboard.copyright')}}</label>
-                                <section class="snow-editor">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div id="snow-wrapper">
-                                                <div id="snow-container">
-                                                    <div class="quill-toolbar">
-                                                        <span class="ql-formats">
-                                                            <select class="ql-header">
-                                                                <option value="1">Heading</option>
-                                                                <option value="2">Subheading</option>
-                                                                <option selected>Normal</option>
-                                                            </select>
-                                                        </span>
-                                                        <span class="ql-formats">
-                                                            <button class="ql-bold"></button>
-                                                            <button class="ql-italic"></button>
-                                                            <button class="ql-underline"></button>
-                                                        </span>
-                                                        <span class="ql-formats">
-                                                            <button class="ql-link"></button>
-                                                        </span>
-                                                        <span class="ql-formats">
-                                                            <button class="ql-clean"></button>
-                                                        </span>
-                                                    </div>
-                                                    <div class="editor">
-                                                        {!! old('copyright',GeneralSetting::getValueForKey('copyright')) !!}
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-                                <textarea name="copyright" class="form-control" hidden id="copyright">
-                                                    </textarea>
-                                @error('copyright')
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="type['contact_number']">{{__('dashboard.contact mail')}}</label>
+                                <input type="email" class="form-control" name="type[contact_mail]" value="{{old("type.contact_mail",GeneralSetting::getValueForKey('contact_mail'))}}"  placeholder="{{__('dashboard.contact mail')}}" required >
+                                @error('type.contact_mail')
                                 <span class="text-danger">{{$message}}</span>
-                                @enderror--}}
+                                @enderror
                             </div>
+                        </div>
 
                         <x-dashboard.generalSettings.uploadImage i="1" name="logo" folder="logo/"/>
-                        <x-dashboard.generalSettings.uploadImage i="2" name="logo" folder="logo/" />
+                        <x-dashboard.generalSettings.uploadImage i="2" name="favicon" folder="logo/" />
 
                     </div>
                     <x-dashboard.generalSettings.submitButton id="general-settings-save" />

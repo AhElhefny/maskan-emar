@@ -25,9 +25,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('dashboardAssets/app-assets/vendors/css/editors/quill/monokai-sublime.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('dashboardAssets/app-assets/vendors/css/editors/quill/quill.snow.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('dashboardAssets/app-assets/vendors/css/editors/quill/quill.bubble.css')}}">
-{{--        <link rel="stylesheet" type="text/css" href="{{ asset('dashboardAssets/app-assets/vendors/css/tables/ag-grid/ag-grid.css')}}">--}}
-{{--        <link rel="stylesheet" type="text/css" href="{{ asset('dashboardAssets/app-assets/vendors/css/tables/ag-grid/ag-theme-material.css')}}">--}}
-{{--        <link rel="stylesheet" type="text/css" href="{{asset('dashboardAssets/app-assets/css-rtl/pages/aggrid.css')}}">--}}
 
         <!-- END: Vendor CSS-->
 
@@ -256,7 +253,8 @@
             padding: 0.3125rem;
             border-radius: 10px;
             display: none;
-            z-index: 1000;
+            /*z-index: 1000;  old*/
+            z-index: 9;
             transition: opacity 300ms ease-in-out;
         }
 

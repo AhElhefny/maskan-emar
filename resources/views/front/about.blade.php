@@ -1,7 +1,8 @@
+@php use App\Models\GeneralSetting; @endphp
 <x-frontend.layouts.master>
 
     <!-- Header Page -->
-    <x-frontend.layouts.breadcrumb title="About US">
+    <x-frontend.layouts.breadcrumb title="{{__('dashboard.about')}}">
     </x-frontend.layouts.breadcrumb>
 
 
@@ -10,12 +11,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <?php
+                    $welcome = explode(' ',GeneralSetting::getValueForKey('page_about_title_en'))
+                    ?>
                     <h2>Welcome to <span>Maskan Emar</span></h2>
-                    <h5>From the lips of Taif to the coast of Jeddah, a story of a real estate association that lasted
-                        more than twenty years, starting with small residential complexes, up to major resorts, through
-                        which we presented a model of elegant architecture and exceptional quality implementation. In
-                        Maskan Emar, we adhered to quality as an approach, so we took a pledge to make every project a
-                        bright flower in its place.</h5>
+                    <h5>{{GeneralSetting::getValueForKey('page_about_desc_en')}}</h5>
                 </div>
                 <!-- Our Vision -->
                 <div class="property-calculator">
@@ -26,7 +26,7 @@
                                     <div class="pattern-bg" data-stellar-ratio="1.03"></div>
                                     <!-- end pattern-bg -->
                                     <div class="holder" data-stellar-ratio="1.07"> <img
-                                            src="{{ asset('frontAssets/images/side-image02.jpg') }}" alt="Image">
+                                            src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('our_vision_image')) }}" alt="Image">
                                     </div>
                                     <!-- end holder -->
                                 </figure>
@@ -34,11 +34,10 @@
                             <!-- end col-6 -->
                             <div class="col-lg-6 wow fadeInUp">
                                 <div class="content-box"> <b>02</b>
-                                    <h4><span>Our vision</span></h4>
-                                    <h3>That Maskan Emar Company be the first in the western region in real estate
-                                        development.</h3>
-                                    <a href="{{route('front.about')}}"> <img src="{{ asset('frontAssets/images/icon-m2.png') }}"
-                                            alt="Image">Discover More</a>
+                                    <h4><span>{{__('dashboard.Our vision')}}</span></h4>
+                                    <h3>{{GeneralSetting::getValueForKey('our_vision_desc_en')}}</h3>
+{{--                                    <a href="{{route('front.about')}}"> <img src="{{ asset('frontAssets/images/icon-m2.png') }}"--}}
+{{--                                            alt="Image">Discover More</a>--}}
                                 </div>
                                 <!-- end content-box -->
                             </div>
@@ -52,13 +51,13 @@
                 <div class="col-12">
                     <div class="gallery-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/blog01.jpg') }}"
+                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('about_slider_1')) }}"
                                     alt="Image"></div>
-                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/blog02.jpg') }}"
+                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('about_slider_2')) }}"
                                     alt="Image"></div>
-                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/blog03.jpg') }}"
+                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('about_slider_3')) }}"
                                     alt="Image"></div>
-                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/blog04.jpg') }}"
+                            <div class="swiper-slide"><img src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('about_slider_4')) }}"
                                     alt="Image"></div>
                         </div>
                         <!-- add swiper-wrapper -->
@@ -78,7 +77,7 @@
                                     <div class="pattern-bg" data-stellar-ratio="1.03"></div>
                                     <!-- end pattern-bg -->
                                     <div class="holder" data-stellar-ratio="1.07"> <img
-                                            src="{{ asset('frontAssets/images/side-image01.jpg') }}" alt="Image">
+                                            src="{{ asset('frontAssets/images/about/'.GeneralSetting::getValueForKey('our_message_image')) }}" alt="Image">
                                     </div>
                                     <!-- end holder -->
                                 </figure>
@@ -86,10 +85,10 @@
                             <!-- end col-6 -->
                             <div class="col-lg-6 wow fadeInUp">
                                 <div class="content-box"> <b>04</b>
-                                    <h4><span>Our Message</span></h4>
-                                    <h3>We strive to provide quality and luxury in Saudi real estate development.</h3>
-                                    <a href="{{route('front.about')}}"> <img src="{{ asset('frontAssets/images/icon-m2.png') }}"
-                                            alt="Image">Discover More</a>
+                                    <h4><span>{{__('dashboard.Our Message')}}</span></h4>
+                                    <h3>{{GeneralSetting::getValueForKey('our_message_desc_en')}}</h3>
+{{--                                    <a href="{{route('front.about')}}"> <img src="{{ asset('frontAssets/images/icon-m2.png') }}"--}}
+{{--                                            alt="Image">Discover More</a>--}}
                                 </div>
                                 <!-- end content-box -->
                             </div>

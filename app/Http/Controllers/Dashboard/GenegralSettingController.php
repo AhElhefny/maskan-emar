@@ -20,9 +20,8 @@ class GenegralSettingController extends Controller
               'type.website_name_ar' => ['required','min:5','max:100'],
               'type.website_name_en' => ['required','min:5','max:100'],
               'type.contact_number'=> ['required','min:9','max:12'],
-              'copyright' => ['required','min:10'],
               'logo1' => [Rule::requiredIf(!GeneralSetting::getValueForKey('logo1')),'image'],
-              'logo2' => [Rule::requiredIf(!GeneralSetting::getValueForKey('logo2')),'image'],
+              'favicon2' => [Rule::requiredIf(!GeneralSetting::getValueForKey('favicon2')),'image'],
             ];
 
             $validator = Validator::make($request->all(),$rules);
@@ -42,11 +41,11 @@ class GenegralSettingController extends Controller
                 GeneralSetting::updateOrCreate(['key' => 'logo1'],['value' => $filename]);
             }
 
-            if ($request->hasFile('logo2')){
-                $file = $request->file('logo2');
-                $filename = '02_logo.'.$file->getClientOriginalExtension();
+            if ($request->hasFile('favicon2')){
+                $file = $request->file('favicon2');
+                $filename = '02_favicon.'.$file->getClientOriginalExtension();
                 $file->move(public_path('frontAssets/images/logo'), $filename);
-                GeneralSetting::updateOrCreate(['key' => 'logo2'],['value' => $filename]);
+                GeneralSetting::updateOrCreate(['key' => 'favicon2'],['value' => $filename]);
             }
 
         }

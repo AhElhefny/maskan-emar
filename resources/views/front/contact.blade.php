@@ -1,7 +1,7 @@
 @php use App\Models\GeneralSetting; @endphp
 <x-frontend.layouts.master>
     <!-- Header Page -->
-    <x-frontend.layouts.breadcrumb title="Contact US">
+    <x-frontend.layouts.breadcrumb title="{{__('dashboard.contact')}}">
     </x-frontend.layouts.breadcrumb>
 
     <!-- Header Page -->

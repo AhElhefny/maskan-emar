@@ -1,6 +1,6 @@
 <x-frontend.layouts.master>
     <!-- Header Page -->
-    <x-frontend.layouts.breadcrumb title="Our Services">
+    <x-frontend.layouts.breadcrumb title="{{__('dashboard.services')}}">
     </x-frontend.layouts.breadcrumb>
 
 

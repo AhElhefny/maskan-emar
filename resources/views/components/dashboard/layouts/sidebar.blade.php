@@ -56,7 +56,7 @@
 
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-briefcase"></i><span class="menu-title" data-i18n="Ecommerce">{{__('dashboard.manage about-us')}}</span></a>
+            <li class=" nav-item"><a href="#"><i class="feather icon-briefcase"></i><span class="menu-title" data-i18n="Ecommerce">{{__('dashboard.about us')}}</span></a>
                 <ul class="menu-content">
                     <li class="{{Route::is('admin.aboutUs.manage')? 'active':''}}"><a href="{{route('admin.aboutUs.manage')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">{{__('dashboard.manage about-us')}}</span></a>
                     </li>

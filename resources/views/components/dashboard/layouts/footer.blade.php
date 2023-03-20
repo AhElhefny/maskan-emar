@@ -39,13 +39,6 @@
 <script src="{{asset('dashboardAssets/app-assets/js/scripts/pages/app-ecommerce-details.js')}}"></script>
 <script src="{{asset('dashboardAssets/app-assets/js/scripts/forms/number-input.js')}}"></script>
 
-
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/pdfmake.min.js')}}"></script> --}}
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/vfs_fonts.js')}}"></script> --}}
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script> --}}
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/buttons.html5.min.js')}}"></script> --}}
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/buttons.print.min.js')}}"></script> --}}
-{{-- <script src="{{asset('dashboardAssets/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js')}}"></script> --}}
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Page JS-->
@@ -57,7 +50,6 @@
 
 <!-- BEGIN: Page JS-->
 <script src="{{asset('dashboardAssets/app-assets/js/scripts/pages/app-user.js')}}"></script>
-{{--<script src="{{asset('dashboardAssets/vendors/js/tables/ag-grid/ag-grid-community.min.noStyle.js')}}"></script>--}}
 <!-- END: Page JS-->
 <!-- BEGIN: Page JS-->
 <script src="{{asset('dashboardAssets/app-assets/js/scripts/pages/dashboard-analytics.js')}}"></script>
