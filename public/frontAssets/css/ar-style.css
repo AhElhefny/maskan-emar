@@ -1,0 +1,225 @@
+@font-face {
+font-family: ar-font;
+src: url(../fonts/ar/ar.ttf);
+}
+*{
+    font-family: ar-font !important;
+}
+.fa, .fab, .fal, .far, .fas{
+    font-family: "Font Awesome 5 Brands" !important;
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free" !important;
+}
+html{
+    direction: rtl;
+}
+body{
+    overflow-x: hidden;
+}
+.navbar .container .upper-side .phone-email{
+    margin: 0 auto 0 5px;
+    text-align: left;
+}
+.navbar .container .upper-side .phone-email img{
+    float: left;
+    margin-left: 0;
+    margin-right: 15px;
+}
+.side-navigation{
+    right: -100%;
+}
+.side-navigation.active{
+    right: 0;
+    left: auto;
+}
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+    .side-navigation {
+        width: 80vw;
+    }
+}
+.navbar .container .menu ul{
+    margin: 0 auto 0 0;
+}
+.navbar .container .menu ul li{
+    margin-right: 40px;
+    margin-left: 0;
+}
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+    .navbar .container .upper-side .hamburger {
+        margin-right: auto;
+        margin-left: 5px;
+    }
+}
+.slider .slider-container .swiper-slide .container{
+    text-align: right;
+    padding-right: 100px;
+    padding-left: 15px;
+}
+.slider .slider-container .swiper-slide .container a{
+    float: right;
+}
+.slider .slider-container .swiper-slide .container figure{
+    float: right;
+    margin-left: 0;
+    margin-right: 40px;
+}
+.intro .content-box{
+    text-align: right;
+    padding-left: 0;
+    padding-right: 10%;
+}
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+    .intro .content-box {
+        padding: 0 15px;
+    }
+}
+.facilities h4,
+.facilities small,
+.recent-gallery b,
+.recent-gallery h4,
+.property-customization b,
+.property-customization h4{
+    text-align: right;
+}
+.facilities small:after{
+    margin-left: 0;
+    margin-right: 5px;
+}
+.facilities figure img{
+    float: right;
+}
+.facilities figure figcaption{
+    float: left;
+    text-align: right;
+}
+.recent-gallery h3{
+    padding-left: 40%;
+    padding-right: 0;
+    text-align: right;
+}
+.recent-gallery .link{
+    float: right;
+}
+.recent-gallery .link:before{
+    left: auto;
+    right: 0;
+}
+.recent-gallery .link i{
+margin-right: 0;
+margin-left: 10px;
+float: right;
+transform: rotate(180deg);
+}
+.property-calculator figure:before,
+.contact .map:before{
+    left: auto;
+    right: -50vw;
+    opacity: 0;
+}
+.property-calculator .content-box {
+    padding-left: 0%;
+    padding-right: 10%;
+    text-align: right;
+}
+@media only screen and (max-width: 991px), only screen and (max-device-width: 991px){
+    .property-calculator .content-box {
+        padding-top: 50px;
+    }
+}
+.property-customization figure img{
+    float: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+.contact .map .pattern-bg{
+    left: auto;
+    width: 110%;
+    right: 5%;
+}
+.contact .contact-form {
+    padding-right: 10%;
+    padding-left: 0%;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+}
+.footer-bar .inner figure{
+    float: right;
+    margin-right: 0;
+    margin-left: 30px;
+}
+.footer-bar .inner h3{
+    text-align: right;
+
+}
+.footer-bar .inner p,
+.footer,
+.about-content h2,
+.about-content h5,
+.apartment h2,
+.apartment h5,
+.sales-team figure figcaption,
+.contact{
+    text-align: right;
+}
+.footer .footer-menu li{
+
+}
+.footer .footer-menu li a{
+    float: right;
+}
+.page-header .container{
+    text-align: right;
+}
+.page-header .container .breadcrumb{
+    left: auto;
+    right: 15px;
+}
+.sales-team figure figcaption small:after {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+.sales-team figure figcaption ul li a i {
+    margin-right: 0;
+    margin-left: 6px;
+}
+.intro .content-box a img,
+.property-calculator .content-box a img{
+    margin-right: 0;
+    margin-left: 15px;
+}
+.slider .slider-container .swiper-slide .container a i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+.navbar .container .upper-side .phone-email h4,
+.navbar .container .upper-side .phone-email small a{
+    padding-right: 0;
+    padding-left: 40px;
+}
+.slider .slider-container .inner-elements .container .pagination{
+    right: auto;
+    left: 15px;
+}
+.slider .slider-container .inner-elements .container .button-prev{
+    right: auto;
+    left: 10px;
+}
+.slider .slider-container .inner-elements .container .button-next{
+    right: auto;
+    left: 10px;
+}
+.side-navigation .side-content{
+    text-align: right;
+}
+.side-navigation .social-media{
+    width: auto;
+    float: right;
+    display: block;
+}
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+    .slider .slider-container .swiper-slide .container{
+        padding: 15px
+    }
+}

@@ -14,4 +14,8 @@
     <!-- CSS FILES -->
     <link rel="stylesheet" href="{{asset('frontAssets/css/plugin.css')}}">
     <link rel="stylesheet" href="{{asset('frontAssets/css/style.css')}}">
+    @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{asset('frontAssets/css/ar-style.css')}}">
+    @endif
+
 </head>

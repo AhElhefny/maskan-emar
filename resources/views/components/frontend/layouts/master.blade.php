@@ -1,6 +1,6 @@
 @php use App\Models\GeneralSetting; @endphp
     <!doctype html>
-<html lang="en">
+<html lang="{{app()->getLocale() == 'ar'?'ar':'en'}}">
 
 <x-frontend.layouts.head />
 

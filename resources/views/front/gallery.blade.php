@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-12">
                     <ul class="gallery-filter">
-                        <li><a href="javascript:void(0);" data-filter="*" class="current">ALL AREA</a></li>
-                        <li><a href="javascript:void(0);" data-filter=".one">INTERIOR</a></li>
-                        <li><a href="javascript:void(0);" data-filter=".two">BUILDING</a></li>
-                        <li><a href="javascript:void(0);" data-filter=".three">SPACES</a></li>
+                        <li><a href="javascript:void(0);" data-filter="*" class="current">{{__('dashboard.all area')}}</a></li>
+                        <li><a href="javascript:void(0);" data-filter=".one">{{__('dashboard.interior')}}</a></li>
+                        <li><a href="javascript:void(0);" data-filter=".two">{{__('dashboard.building')}}</a></li>
+                        <li><a href="javascript:void(0);" data-filter=".three">{{__('dashboard.spaces')}}</a></li>
                     </ul>
                     <ul class="gallery">
                         @foreach ($galleries as $gallery)
