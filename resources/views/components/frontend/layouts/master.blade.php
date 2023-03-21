@@ -43,7 +43,7 @@
                 <li><a href="{{asset('frontAssets/images/gallery-thumb02.jpg')}}" data-fancybox><img src="{{asset('frontAssets/images/gallery-thumb02.jpg')}}" alt="Image"></a></li>
                 <li><a href="{{asset('frontAssets/images/gallery-thumb03.jpg')}}" data-fancybox><img src="{{asset('frontAssets/images/gallery-thumb03.jpg')}}" alt="Image"></a></li>
             </ul>
-            <address>Saudi Arabia, Jeddah, Al-Naseem</address>
+            <address>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('address_ar'):GeneralSetting::getValueForKey('address_en')}}</address>
             <h6>+{{GeneralSetting::getValueForKey('contact_number')}}</h6>
             <p><a >{{GeneralSetting::getValueForKey('contact_mail')}}</a></p>
             <ul class="social-media">
@@ -53,7 +53,7 @@
                 <li><a href="{{GeneralSetting::getValueForKey('contact_google')}}"><i class="fab fa-google-plus-g"></i></a></li>
                 <li><a href="{{GeneralSetting::getValueForKey('contact_youtube')}}"><i class="fab fa-youtube"></i></a></li>
             </ul>
-            <small>© 2023 Maskan Emar For Real Estate Development.</small>
+            <small style="display: inline-block">© 2023 Maskan Emar For Real Estate Development.</small>
         </div>
         <!-- end side-content -->
     </div>

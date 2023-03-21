@@ -7,21 +7,20 @@
             <div class="row">
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.05s">
                     <figure><img src="{{asset('frontAssets/images/footer-icon01.png')}}" alt="Image"></figure>
-                    <h3>Address Infos</h3>
-                    <p>4254 Hassan Abdullah Al-Qurashi,<br> Jeddah 23235, Saudi Arabia</p>
+                    <h3>{{__('dashboard.table address')}}</h3>
+                    <p>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('address_ar'):GeneralSetting::getValueForKey('address_en')}}</p>
                 </div>
                 <!-- end col-4 -->
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.10s">
                     <figure><img src="{{asset('frontAssets/images/footer-icon02.png')}}" alt="Image"></figure>
-                    <h3>Working Hours</h3>
-                    <p>From Saturday to Thursday from<br> <strong>4:00</strong> - <strong>10:00</strong> PM, and
-                        Friday is <strong>off</strong></p>
+                    <h3>{{__('dashboard.works time')}}</h3>
+                    <p>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('worktime_ar'):GeneralSetting::getValueForKey('worktime_en')}}</strong></p>
                 </div>
                 <!-- end col-4 -->
                 <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.15s">
                     <figure><img src="{{asset('frontAssets/images/footer-icon03.png')}}" alt="Image"></figure>
-                    <h3>Sales Office</h3>
-                    <p>Kingdom of Saudi Arabia - Taif - <br> Jeddah</p>
+                    <h3>{{__('dashboard.Sales Office')}}</h3>
+                    <p>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('sales_office_address_ar'):GeneralSetting::getValueForKey('sales_office_address_en')}}</p>
                 </div>
                 <!-- end col-4 -->
             </div>

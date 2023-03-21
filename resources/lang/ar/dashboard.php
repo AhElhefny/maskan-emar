@@ -113,7 +113,7 @@ return [
     'add worksTime' => 'إضافة اوقات عمل' ,
     'edit worksTime' => 'تعديل اوقات عمل' ,
     'worksTime list' => 'قائمة اوقات العمل' ,
-    'works time' => 'اوقات العمل',
+    'works time' => 'ساعات العمل',
     'from' => 'وقت بدء الدوام' ,
     'to' => 'وقت إنتهاء الدوام' ,
     'notes' => 'ملاحظات' ,
@@ -332,6 +332,11 @@ return [
     'say hello' => 'قل مرحبا',
     'visit us' => 'زورنا',
     'welcome to' => 'مرحبا بكم في',
+    'footer' => 'الفوتر',
+    'Sales Office' => 'مكتب المبيعات',
+    'Sales Office address' => 'عنوان مكتب المبيعات',
+    '' => '',
+    '' => '',
     '' => '',
 
 ];

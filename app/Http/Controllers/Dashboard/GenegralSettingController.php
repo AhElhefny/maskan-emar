@@ -50,9 +50,9 @@ class GenegralSettingController extends Controller
 
         }
 
-        if ($request->has('navbar') || $request->has('titles')){
+        if ($request->has('footer') || $request->has('titles')){
             $rules = [
-              'type.*' => $request->navbar?['required','min:3','max:15']:['required','min:3','max:100'],
+              'type.*' => $request->footer?['required','min:5','max:255']:['required','min:3','max:100'],
             ];
             $validator = Validator::make($request->all(),$rules);
 

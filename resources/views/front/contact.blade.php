@@ -16,7 +16,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp">
                     <address>
                         <strong>{{__('dashboard.visit us')}}</strong>
-                        <p>Kristiatik 15th Street, Floot 17<br>Kiev, Ukraine 78692</p>
+                        <p>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('address_ar'):GeneralSetting::getValueForKey('address_en')}}</p>
                     </address>
                 </div>
                 <!-- end col-3 -->
