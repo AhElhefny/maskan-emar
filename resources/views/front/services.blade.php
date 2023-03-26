@@ -1,3 +1,6 @@
+@php
+    use App\Models\GeneralSetting;
+@endphp
 <x-frontend.layouts.master>
     <x-frontend.layouts.breadcrumb title="{{__('dashboard.services')}}">
     </x-frontend.layouts.breadcrumb>
@@ -6,8 +9,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 wow fadeInUp">
-                    <h4><span>Our Services</span></h4>
-                    <small>Our Services Provide</small>
+                    <h4><span>{{__('dashboard.services')}}</span></h4>
+                    <small>{{app()->getLocale()=='ar'?GeneralSetting::getValueForKey('services_title_ar'):GeneralSetting::getValueForKey('services_title_en')}}</small>
                 </div>
             </div>
              <div class="row">
