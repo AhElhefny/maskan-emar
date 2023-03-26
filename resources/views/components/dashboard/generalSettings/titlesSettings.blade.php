@@ -9,14 +9,11 @@
                 @csrf
                 <input type="hidden" name="titles">
                 <div class="row">
-                    <x-dashboard.generalSettings.titleSettingInput nav="nav3" />
-                    <x-dashboard.generalSettings.titleSettingInput nav="nav4" />
-                    <x-dashboard.generalSettings.titleSettingInput nav="nav5" />
-                    <x-dashboard.generalSettings.titleSettingInput nav="nav6" />
+                    {{--                    about us            --}}
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="type['review_title_ar']">{{__('dashboard.review title').' '.__('dashboard.in arabic')}}</label>
-                            <input type="text" class="form-control" name="type[review_title_ar]" value="{{old("type[review_title_ar]",GeneralSetting::getValueForKey('review_title_ar'))}}"  placeholder="{{__('dashboard.review title').' '.__('dashboard.in arabic')}}" required >
+                            <label for="type['pageHome_about_title_ar']">{{__('dashboard.about us title').' '.__('dashboard.in arabic')}}</label>
+                            <input type="text" class="form-control" name="type[pageHome_about_title_ar]" value="{{old("type[pageHome_about_title_ar]",GeneralSetting::getValueForKey('pageHome_about_title_ar'))}}"  placeholder="{{__('dashboard.about us title').' '.__('dashboard.in arabic')}}" required >
                             @error('type.review_title_ar')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
@@ -24,31 +21,72 @@
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="type['review_title_en']">{{__('dashboard.review title').' '.__('dashboard.in english')}}</label>
-                            <input type="text" class="form-control" name="type[review_title_en]" value="{{old("type[review_title_en]",GeneralSetting::getValueForKey('review_title_en'))}}"  placeholder="{{__('dashboard.review title').' '.__('dashboard.in english')}}" required >
-                            @error('type.review_title_en')
+                            <label for="type['pageHome_about_title_en']">{{__('dashboard.about us title').' '.__('dashboard.in english')}}</label>
+                            <input type="text" class="form-control" name="type[pageHome_about_title_en]" value="{{old("type[pageHome_about_title_en]",GeneralSetting::getValueForKey('pageHome_about_title_en'))}}"  placeholder="{{__('dashboard.about us title').' '.__('dashboard.in english')}}" required >
+                            @error('type.pageHome_about_title_en')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="type['group_title_ar']">{{__('dashboard.group title').' '.__('dashboard.in arabic')}}</label>
-                            <input type="text" class="form-control" name="type[group_title_ar]" value="{{old("type[group_title_ar]",GeneralSetting::getValueForKey('group_title_ar'))}}"  placeholder="{{__('dashboard.group title').' '.__('dashboard.in arabic')}}" required >
-                            @error('type.group_title_ar')
+                            <label for="type['pageHome_about_desc_ar']">{{__('dashboard.about us desc').' '.__('dashboard.in arabic')}}</label>
+                            <input type="text" class="form-control" name="type[pageHome_about_desc_ar]" value="{{old("type[pageHome_about_desc_ar]",GeneralSetting::getValueForKey('pageHome_about_desc_ar'))}}"  placeholder="{{__('dashboard.about us desc').' '.__('dashboard.in arabic')}}" required >
+                            @error('type.pageHome_about_desc_ar')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
-                            <label for="type['group_title_en']">{{__('dashboard.group title').' '.__('dashboard.in english')}}</label>
-                            <input type="text" class="form-control" name="type[group_title_en]" value="{{old("type[group_title_en]",GeneralSetting::getValueForKey('group_title_en'))}}"  placeholder="{{__('dashboard.group title').' '.__('dashboard.in english')}}" required >
-                            @error('type.group_title_en')
+                            <label for="type['pageHome_about_desc_en']">{{__('dashboard.about us desc').' '.__('dashboard.in english')}}</label>
+                            <input type="text" class="form-control" name="type[pageHome_about_desc_en]" value="{{old("type[pageHome_about_desc_en]",GeneralSetting::getValueForKey('pageHome_about_desc_en'))}}"  placeholder="{{__('dashboard.about us desc').' '.__('dashboard.in english')}}" required >
+                            @error('type.pageHome_about_desc_en')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
                     </div>
+                    {{--                   end about us            --}}
+                    {{--                   gallery            --}}
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="type['gallery_title_ar']">{{__('dashboard.gallery title').' '.__('dashboard.in arabic')}}</label>
+                            <input type="text" class="form-control" name="type[gallery_title_ar]" value="{{old("type[gallery_title_ar]",GeneralSetting::getValueForKey('gallery_title_ar'))}}"  placeholder="{{__('dashboard.gallery title').' '.__('dashboard.in arabic')}}" required >
+                            @error('type.gallery_title_ar')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="type['gallery_title_en']">{{__('dashboard.gallery title').' '.__('dashboard.in english')}}</label>
+                            <input type="text" class="form-control" name="type[gallery_title_en]" value="{{old("type[gallery_title_en]",GeneralSetting::getValueForKey('gallery_title_en'))}}"  placeholder="{{__('dashboard.gallery title').' '.__('dashboard.in english')}}" required >
+                            @error('type.gallery_title_en')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    {{--                   end gallery            --}}
+                    {{--                   services            --}}
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="type['services_title_ar']">{{__('dashboard.services title').' '.__('dashboard.in arabic')}}</label>
+                            <input type="text" class="form-control" name="type[services_title_ar]" value="{{old("type[services_title_ar]",GeneralSetting::getValueForKey('services_title_ar'))}}"  placeholder="{{__('dashboard.services title').' '.__('dashboard.in arabic')}}" required >
+                            @error('type.services_title_ar')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="type['services_title_en']">{{__('dashboard.services title').' '.__('dashboard.in english')}}</label>
+                            <input type="text" class="form-control" name="type[services_title_en]" value="{{old("type[services_title_en]",GeneralSetting::getValueForKey('services_title_en'))}}"  placeholder="{{__('dashboard.services title').' '.__('dashboard.in english')}}" required >
+                            @error('type.services_title_en')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    {{--                   end services            --}}
                 </div>
                 <x-dashboard.generalSettings.submitButton />
             </form>

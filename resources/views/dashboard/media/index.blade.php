@@ -17,30 +17,30 @@
                             <x-dashboard.layouts.message />
                         @endif
                         <div class="card-content">
-                                <div class="card-body">
-                                      <div class="table-responsive overflow-auto">
-                                           <table class="table table-striped" id="media-table">
-                                               <thead>
-                                                   <a href="{{route('admin.media.create')}}"><button  class="mb-2 btn btn-primary"><i class="mr-1 feather icon-plus"></i>{{__('dashboard.add media')}}</button></a>
-                                                      <tr>
-                                                            <th>{{__('dashboard.table name')}}</th>
-                                                            <th>{{__('dashboard.table image')}}</th>
-                                                            <th>{{__('dashboard.table create date')}}</th>
-                                                            <th>{{__('dashboard.actions')}}</th>
-                                                      </tr>
-                                                  </thead>
-                                                   <tbody class=" ">
+                                  <div class="card-body">
+                                        <div class="table-responsive overflow-auto">
+                                              <table class="table table-striped" id="media-table">
+                                                    <thead>
+                                                        <a href="{{route('admin.media.create')}}"><button  class="mb-2 btn btn-primary"><i class="mr-1 feather icon-plus"></i>{{__('dashboard.add media')}}</button></a>
+                                                           <tr>
+                                                                <th>{{__('dashboard.table name')}}</th>
+                                                                <th>{{__('dashboard.table image')}}</th>
+                                                                <th>{{__('dashboard.table create date')}}</th>
+                                                                <th>{{__('dashboard.actions')}}</th>
+                                                           </tr>
+                                                      </thead>
+                                                       <tbody class=" ">
 
-                                                  </tbody>
-                                           </table>
+                                                       </tbody>
+                                                 </table>
+                                            </div>
                                       </div>
                                  </div>
                             </div>
-                       </div>
-                  </dev>
-             </div>
-       </div>
- </div>
+                      </dev>
+                 </div>
+            </div>
+     </div>
 <!-- END: Content-->
 @section('script')
 

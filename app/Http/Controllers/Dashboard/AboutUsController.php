@@ -38,5 +38,6 @@ class AboutUsController extends Controller
         }
 
         return back()->with(['success',__('dashboard.item updated successfully')]);
+        
     }
 }

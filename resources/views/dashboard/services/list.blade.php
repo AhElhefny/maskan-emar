@@ -1,4 +1,4 @@
-<x-dashboard.layouts.master title="{{__('dashboard.servic list')}}">
+<x-dashboard.layouts.master title="{{__('dashboard.service list')}}">
 <!-- BEGIN: Content-->
 <div class="app-content content">
     <div class="content-overlay"></div>
@@ -76,12 +76,12 @@
                         {data:'image',render:function(data){
                           return  `<img width="100" height="80" src="${data}">`
                         }},
-                       
+
                         {data: 'created_at', name:'created_at'},
                         {data: 'id',
                             render:function (data,two,three){
                                 let edit ='services/'+data+'/edit';
-                             
+
                                return `<div class="btn-group">
                                     <div class="dropdown">
                                         <button class="btn btn-flat-dark dropdown-toggle mr-1 mb-1" type="button" id="dropdownMenuButton700" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

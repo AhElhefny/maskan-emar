@@ -35,13 +35,18 @@
             </ul>
         </div>
         <!-- end menu -->
+
         <div class="side-content">
             <figure> <img src="{{asset('frontAssets/images/logo/'.GeneralSetting::getValueForKey('logo1'))}}" alt="Image"> </figure>
-            <p>We Have More Than 20 Years Experiences To Handle Many High Class Building Project</p>
+            <p>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('pageHome_about_desc_ar'):GeneralSetting::getValueForKey('pageHome_about_desc_en')}}</p>
             <ul class="gallery">
-                <li><a href="{{asset('frontAssets/images/gallery-thumb01.jpg')}}" data-fancybox><img src="{{asset('frontAssets/images/gallery-thumb01.jpg')}}" alt="Image"></a></li>
-                <li><a href="{{asset('frontAssets/images/gallery-thumb02.jpg')}}" data-fancybox><img src="{{asset('frontAssets/images/gallery-thumb02.jpg')}}" alt="Image"></a></li>
-                <li><a href="{{asset('frontAssets/images/gallery-thumb03.jpg')}}" data-fancybox><img src="{{asset('frontAssets/images/gallery-thumb03.jpg')}}" alt="Image"></a></li>
+                @foreach($randomGallery as $gallery)
+                <li>
+                    <a href="{{ $gallery->image }}" data-fancybox>
+                        <img src="{{ $gallery->image }}" alt="Image" height="100px">
+                    </a>
+                </li>
+                @endforeach
             </ul>
             <address>{{app()->getLocale() == 'ar'?GeneralSetting::getValueForKey('address_ar'):GeneralSetting::getValueForKey('address_en')}}</address>
             <h6>+{{GeneralSetting::getValueForKey('contact_number')}}</h6>

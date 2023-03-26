@@ -23,10 +23,12 @@ class Service extends Model
         'description_en',
         'icon'
     ];
+    
+     
+    public function galary()
+    {
+       return $this->hasMany(ServicePhotos::class,'service_id');
 
-    public function getImage2Attribute($value){
-
-        return $value?asset('dashboardAssets/images/'.$this->folder.'/'.$value):null;
     }
 
 }

@@ -16,6 +16,7 @@ use App\Http\Controllers\Dashboard\TermsConditionsController;
 use App\Http\Controllers\Dashboard\CustomerReviewController;
 use App\Http\Controllers\Dashboard\MediaController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\OurRatesController;
 use App\Http\Controllers\Frontend\maskanHomeController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -84,6 +85,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
                     'groups' => GroupController::class,
                     'works' => OurWorkController::class,
                     'media' => MediaController::class,
+                    'rates' => OurRatesController::class,
 
                 ]);
 

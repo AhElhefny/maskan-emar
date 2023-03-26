@@ -12,15 +12,15 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="video_link">Video Link</label>
-                                <input type="url" class="form-control" name="video_link" value="{{old("video_link",GeneralSetting::getValueForKey('video_link'))}}"  placeholder="Video Link" required >
-                                @error('video_link')
+                                <label for="rate_video">Rate Video</label>
+                                <input type="file" class="form-control" name="rate_video" required >
+                                @error('rate_video')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
                         </div>
-                        <x-dashboard.generalSettings.uploadImage i="3" name="preview_background" folder="reviews/" />
-                        <x-dashboard.generalSettings.uploadImage i="4" name="video_background" folder="video/"/>
+                        <x-dashboard.generalSettings.uploadImage i="3" name="pageHome_about_image" folder="about/" />
+                        <x-dashboard.generalSettings.uploadImage i="4" name="pages_header_image" folder="header/"/>
 
                     </div>
                     <x-dashboard.generalSettings.submitButton id="background-save" />

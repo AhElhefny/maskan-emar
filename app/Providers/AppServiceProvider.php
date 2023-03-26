@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Media;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-//use Illuminate\View\View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        View::share('lang',app()->getLocale());
+        View::share('randomGallery',Media::inRandomOrder()->limit(3)->get());
         Schema::defaultStringLength(191);
         Paginator::useBootstrap();
     }

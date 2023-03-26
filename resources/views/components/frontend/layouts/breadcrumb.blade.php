@@ -1,4 +1,5 @@
-<header class="page-header" data-background="{{asset('frontAssets/images/slide01.jpg')}}" data-stellar-background-ratio="1.15">
+@php use App\Models\GeneralSetting; @endphp
+<header class="page-header" data-background="{{asset('frontAssets/images/header/'.GeneralSetting::getValueForKey('pages_header_image4'))}}" data-stellar-background-ratio="1.15">
     <div class="container">
         <h1>{{$title}}</h1>
         <ol class="breadcrumb">

@@ -136,20 +136,20 @@ ee                                                          <optgroup label="{{_
                                                               @enderror
                                                           </div>
                                                     </div>
-                                              <div class="col-6">
-                                                     <div class="form-group">
-                                                          <label for="first-name-icon">{{__('dashboard.amount').' '.__('dashboard.table review')}}</label>
-                                                             <div class="position-relative has-icon-left">
-                                                                  <input type="number" id="first-name-icon" class="form-control" name="reviews" placeholder="{{__('dashboard.amount').' '.__('dashboard.table review')}}" required min="0" max="5">
-                                                                     <div class="form-control-position">
-                                                                         <i class="feather icon-star"></i>
-                                                                     </div>
-                                                              </div>
-                                                              @error('reviews')
-                                                                <span class="text text-danger">{{$message}}</span>
-                                                              @enderror
-                                                          </div>
-                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                             <label for="first-name-icon">{{__('dashboard.amount').' '.__('dashboard.table review')}}</label>
+                                                                <div class="position-relative has-icon-left">
+                                                                    <input type="number" id="first-name-icon" class="form-control" name="reviews" placeholder="{{__('dashboard.amount').' '.__('dashboard.table review')}}" required min="0" max="5">
+                                                                      <div class="form-control-position">
+                                                                          <i class="feather icon-star"></i>
+                                                                      </div>
+                                                               </div>
+                                                               @error('reviews')
+                                                                 <span class="text text-danger">{{$message}}</span>
+                                                               @enderror
+                                                           </div>
+                                                     </div>
 
                                                     <div class="col-12">
                                                          <button type="submit" class="btn btn-primary mr-1 mb-1">{{__('dashboard.submit')}}</button>

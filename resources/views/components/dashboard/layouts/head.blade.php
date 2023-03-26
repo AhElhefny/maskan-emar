@@ -1,3 +1,6 @@
+<?php
+    use App\Models\GeneralSetting;
+?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +10,7 @@
     <meta name="author" content="PIXINVENT">
     <title>{{ $title }}</title>
     <link rel="apple-touch-icon" href="{{asset('dashboardAssets/app-assets/images/ico/apple-icon-120.png')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('dashboardAssets/app-assets/images/logo/N-FAVICON.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('frontAssets/images/logo/'.GeneralSetting::getValueForKey('favicon2'))}}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
     @if(app()->getLocale()=='ar')
         <!-- BEGIN: Vendor CSS-->

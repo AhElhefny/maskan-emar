@@ -65,31 +65,35 @@ class GenegralSettingController extends Controller
         }
 
         if ($request->has('background')){
-//            $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$=/';
             $rules = [
-                'video_link' => ['required','string'],//,'regex:'.$regex
-                'preview_background3' => [Rule::requiredIf(GeneralSetting::getValueForKey('preview_background3') == null),'image'],
-                'video_background4' => [Rule::requiredIf(GeneralSetting::getValueForKey('video_background4') == null),'image'],
+                'rate_video' => ['required','mimes:mp4,ogx,oga,ogv,ogg,webm','max:20000'],
+                'pageHome_about_image3' => [Rule::requiredIf(GeneralSetting::getValueForKey('pageHome_about_image3') == null),'image'],
+                'pages_header_image4' => [Rule::requiredIf(GeneralSetting::getValueForKey('pages_header_image4') == null),'image'],
             ];
             $validator = Validator::make($request->all(),$rules);
 
             if ($validator->fails()){
                 return back()->withInput()->withErrors($validator->errors());
             }
-            GeneralSetting::updateOrCreate(['key' => 'video_link'],['value' => $request->video_link]);
-
-            if ($request->hasFile('preview_background3')){
-                $file = $request->file('preview_background3');
-                $filename = '00_reviews.'.$file->getClientOriginalExtension();
-                $file->move(public_path('frontAssets/images/reviews'), $filename);
-                GeneralSetting::updateOrCreate(['key' => 'preview_background3'],['value' => $filename]);
+            if ($request->hasFile('rate_video')){
+                $file = $request->file('rate_video');
+                $filename = 'rate_video.'.$file->getClientOriginalExtension();
+                $file->move(public_path('frontAssets/videos'), $filename);
+                GeneralSetting::updateOrCreate(['key' => 'rate_video'],['value' => $filename]);
             }
 
-            if ($request->hasFile('video_background4')){
-                $file = $request->file('video_background4');
-                $filename = '01_video.'.$file->getClientOriginalExtension();
-                $file->move(public_path('frontAssets/images/video'), $filename);
-                GeneralSetting::updateOrCreate(['key' => 'video_background4'],['value' => $filename]);
+            if ($request->hasFile('pageHome_about_image3')){
+                $file = $request->file('pageHome_about_image3');
+                $filename = 'pageHome_about_image.'.$file->getClientOriginalExtension();
+                $file->move(public_path('frontAssets/images/about'), $filename);
+                GeneralSetting::updateOrCreate(['key' => 'pageHome_about_image3'],['value' => $filename]);
+            }
+
+            if ($request->hasFile('pages_header_image4')){
+                $file = $request->file('pages_header_image4');
+                $filename = 'pages_header_image.'.$file->getClientOriginalExtension();
+                $file->move(public_path('frontAssets/images/header'), $filename);
+                GeneralSetting::updateOrCreate(['key' => 'pages_header_image4'],['value' => $filename]);
             }
         }
 

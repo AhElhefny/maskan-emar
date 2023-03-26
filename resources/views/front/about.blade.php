@@ -34,7 +34,7 @@
                                     <h4><span>{{__('dashboard.Our vision')}}</span></h4>
                                     <h3>{{app()->getLocale()=='ar'?GeneralSetting::getValueForKey('our_vision_desc_ar'):GeneralSetting::getValueForKey('our_vision_desc_en')}}</h3>
 {{--                                    <a href="{{route('front.about')}}"> <img src="{{ asset('frontAssets/images/icon-m2.png') }}"--}}
-{{--                                            alt="Image">Discover More</a>--}}
+{{--                                          alt="Image">Discover More</a>--}}
                                 </div>
                                 <!-- end content-box -->
                             </div>

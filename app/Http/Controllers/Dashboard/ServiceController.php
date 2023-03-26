@@ -6,23 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceRequest;
 use App\Models\Service;
 use App\Models\User;
+use App\Models\ServicePhotos;
 use App\Http\services\HelperTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
+use Validator;
 
 class ServiceController extends Controller
 {
+    
     use HelperTrait;
-
-    public function __construct()
-    {
-        $this->middleware('permission:services',['only'=>['index']]);
-        $this->middleware('permission:add service',['only'=>['create','store']]);
-        $this->middleware('permission:edit service',['only'=>['edit','update']]);
-        $this->middleware('permission:delete service',['only'=>['destroy']]);
-        $this->middleware('permission:show service',['only'=>['show']]);
-    }
 
     public function index()
     {
@@ -43,26 +37,50 @@ class ServiceController extends Controller
         return view('dashboard.services.create');
     }
 
-    public function store(ServiceRequest $request)
+    public function store(Request $request)
     {
 
-        $data = $request->except(['_token']);
+            $rules = [
 
-        if($request->file('image')){
+                'image' => ['image','mimes:png', 'max:2048'],
+             ];
 
-            $data['image'] = $this->storeImage($request->file('image'),'services');
-        }
+             $validator = Validator::make($request->all(),$rules);
 
-        if($request->file('image2')){
+              if($validator->fails()){
+                  return back()->withInput()->withErrors($validator->errors());
+              }
 
-            $data['image2'] = $this->storeImage($request->file('image2'),'services');
-        }
+              $data = $request->except(['_token']);
 
-        $service = Service::create($data);
+              if($request->file('image')){
 
-        return redirect()->route('admin.services.index')->with(['success' => __('dashboard.item added successfully')]);
+                   $data['image'] = $this->storeImage($request->file('image'),'services');
+               }
+ 
+                 $service = Service::create($data);
 
-    }
+              if ($request->hasFile('galary')) {
+
+                   $gallary = $request->file('galary');
+
+                   for($i = 0 ; $i < count($gallary); $i++)
+                   {
+
+                      if(!empty($gallary[$i])) {
+
+                            $galary = new ServicePhotos();
+                            $galary->service_id = $service->id;
+                            $galary->photo =  time().'_'.$gallary[$i]->getClientOriginalExtension();
+                            $galary->save();
+                            $dest = 'dashboardAssets/images/services/';
+                            $gallary[$i]->move($dest , $galary->photo);
+                     }
+                 } 
+            }
+              
+           return redirect()->route('admin.services.index')->with(['success' => __('dashboard.item added successfully')]);
+    } 
 
     public function show(Service $service)
     {
@@ -74,27 +92,43 @@ class ServiceController extends Controller
     {
 
         return view('dashboard.services.edit',['service'=>$service]);
-
+        
     }
 
-    public function update(ServiceRequest $request, Service $service)
+    public function update(Request $request ,$id)
     {
+           
+          $service=Service::find($id);
+        
+          $data = $request->except(['_token']);
 
-         $data = $request->except(['_token']);
+          if($request->hasFile('image')){
 
-         if ($request->hasFile('image')){
+               $data['image'] = $this->storeImage($request->file('image'),'services');
+           }
 
-             $data['image'] = $this->storeImage($request->file('image'),$service->folder);
-         }
+           if($request->hasFile('galary')) {
 
-         if($request->file('image2')){
+             $gallary = $request['galary'];
 
-             $data['image2'] = $this->storeImage($request->file('image2'),$service->folder);
-         }
+             for($i =0; $i < count($gallary); $i++)
+              {
 
-         $service->update($data);
+                  if(!empty($gallary[$i])) {
 
-         return redirect()->route('admin.services.index')->with(['success'=>__('dashboard.item updated successfully')]);
+                       $galary = new ServicePhotos ;
+                       $galary->service_id = $id ;
+                       $galary->photo =  time().'_'.$gallary[$i]->getClientOriginalExtension();
+                       $galary->save();
+                       $dest = 'dashboardAssets/images/services/';
+                       $gallary[$i]->move($dest , $galary->photo);
+                 }
+             } 
+          }
+
+           $service->update($data);
+
+          return redirect()->route('admin.services.index')->with(['success'=>__('dashboard.item updated successfully')]);
     }
 
     public function destroy(Service $service)
@@ -103,6 +137,9 @@ class ServiceController extends Controller
         $service->delete();
 
         return back()->with(['success'=>__('dashboard.item deleted successfully')]);
+
     }
 
+
 }
+

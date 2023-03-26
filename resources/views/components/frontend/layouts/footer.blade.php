@@ -36,7 +36,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.05s"> <img src="{{asset('frontAssets/images/logo/'.GeneralSetting::getValueForKey('logo1'))}}" alt="Image" class="logo">
-                <p>We Have More Than 20 Years Experiences To Handle Many High Class Building Project</p>
+                <p>{{app()->getLocale()=='ar'?GeneralSetting::getValueForKey('pageHome_about_desc_ar'):GeneralSetting::getValueForKey('pageHome_about_desc_en')}}</p>
                 <!-- end select-box -->
             </div>
             <!-- end col-4 -->

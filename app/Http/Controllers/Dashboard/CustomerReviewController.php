@@ -25,7 +25,7 @@ class CustomerReviewController extends Controller
            return DataTables::of($reviews)->make(true);
        }
 
-        return view('dashboard.review.index');
+         return view('dashboard.review.index');
     }
 
     public function create()
@@ -53,7 +53,7 @@ class CustomerReviewController extends Controller
 
     public function edit(Review $review)
     {
-
+        
         return view('dashboard.review.edit',compact('review'));
 
     }
