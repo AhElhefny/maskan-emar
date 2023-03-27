@@ -64,19 +64,20 @@
                                                  </div>
 
                                                  <div class="col-12">
-                                                      <div class="form-group">
-                                                           <label for="contact-info-icon">{{__('dashboard.table description'). __('dashboard.in arabic')}}</label>
-                                                             <div class="position-relative has-icon-left">
+                                                       <div class="form-group">
+                                                            <label for="contact-info-icon">{{__('dashboard.table description'). __('dashboard.in arabic')}}</label>
+                                                              <div class="position-relative has-icon-left">
                                                                   <textarea  rows="5" id="contact-info-icon" class="form-control" name="description_ar" placeholder="{{__('dashboard.table description'). __('dashboard.in arabic')}}"></textarea>
                                                                     <div class="form-control-position">
                                                                         <i class="fa fa-pencil"></i>
                                                                    </div>
-                                                            </div>
-                                                              @error('description_ar')
-                                                               <span class="text text-danger">{{$message}}</span>
-                                                              @enderror
-                                                           </div>
-                                                      </div>
+                                                             </div>
+                                                                @error('description_ar')
+                                                                 <span class="text text-danger">{{$message}}</span>
+                                                                @enderror
+                                                             </div>
+                                                       </div>
+                                                       
                                                        <div class="col-12">
                                                             <div class="form-group">
                                                                   <label for="password-icon">{{__('dashboard.table description'). __('dashboard.in english')}}</label>
@@ -92,69 +93,30 @@
                                                                      </div>
                                                                 </div>
 
-                                                                 <div class="col-12">
-                                                                    <h2>Gallary</h2>
-                                                                       <button type="button" class="btn btn-sm btn-primary" id="addRow">
-                                                                           <i class="fa fa-plus text-white"></i>Add Photo
-                                                                      </button>
-                                                                    <div class="table-responsive p-3 mb-3">
-                                                                          <table id="kt_create_new_custom_fields" class="table fw-bold">
-                                                                               <thead class="thead-mute">
-                                                                                   <tr class="text-start">
-                                                                                       <th scope="col">{{ __('dashboard.table image') }}</th>
-                                                                                       <th scope="col" class="text-end">{{__('remove')}}</th>
-                                                                                   </tr>
-                                                                               </thead>
-                                                                           <tbody id="newRow">
-                                                                              <tr id="inputFormRow">
-                                                     
-                                                                                 <td>
-                                                                                     <input type="file" class="form-control" name="galary[]"  />
-                                                                                </td>
-                                                  
-                                                                                 <td class="text-end">
-                                                                                      <button type="button" class="btn btn-danger"  id ="removeRow">
-                                                                                          <span class="text-white"> <i class="fa fa-trash"></i></span>
-                                                                                     </button>
-                                                                                 </td>
-                                                                             </tr>
-                                                                        </tbody>
-                                                                     </table>
+                                                                  <div class="col-12">
+                                                                        <div class="form-group">
+                                                                           <label for="email-id-icon">{{__('dashboard.gallery')}} ({{__('dashboard.add_multiple_pictures')}}) </label>
+                                                                             <div class="position-relative has-icon-left">
+                                                                                  <input type="file" id="email-id-icon" class="form-control" name="photo[]" multiple>
+                                                                                   <div class="form-control-position">
+                                                                                      <i class="feather icon-image"></i>
+                                                                                  </div>
+                                                                            </div>
+                                                                         </div>
+                                                                   </div>
+                                                                                    
+                                                                    <div class="col-12">
+                                                                         <button type="submit" class="btn btn-primary mr-1 mb-1">{{__('dashboard.submit')}}</button>
+                                                                         <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('dashboard.reset')}}</button>
+                                                                    </div>
                                                                </div>
-                                                          </div>
-
-                                                          <div class="col-12">
-                                                               <button type="submit" class="btn btn-primary mr-1 mb-1">{{__('dashboard.submit')}}</button>
-                                                               <button type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('dashboard.reset')}}</button>
-                                                         </div>
-                                                  </div>
+                                                           </div>
+                                                       </form>
+                                                 </div>
                                             </div>
-                                     </form>
-                               </div>
+                                      </div>
+                              </div>
                          </div>
                    </div>
-             </div>
-       </div>
- </div>
-@section('script')
-<script>
 
-$("#addRow").click(function () {
-
-var html = '';
-html += '<tr id="inputFormRow">';
-html +='<td><input type="file" class="form-control form-control-solid" name="galary[]"  />';
-html +='</td>';
-html+='<td><button type="button" class="btn btn-danger"  id ="removeRow">';
-html+=' <span class="text-white"> <i class="fa fa-trash"></i></span> </button>';
-html +='</td></tr>';
-
-$('#newRow').append(html);
-      $(document).on('click', '#removeRow', function (){
-        $(this).closest('#inputFormRow').remove();
-    });
-});
-
-</script>
-@endsection
 </x-dashboard.layouts.master>

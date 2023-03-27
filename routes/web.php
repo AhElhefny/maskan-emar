@@ -89,7 +89,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
                 ]);
 
-
+                Route::delete('service-image/{id}/delete',[ServiceController::class,'destroyServiceImage'])->name('serviceImages.destroy');
                 Route::controller(UserController::class)->group(function (){
                     Route::get('customers/{user}/changeStatus','changeStatus');
                     Route::get('users','users')->name('users.getUsers');

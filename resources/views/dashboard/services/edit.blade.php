@@ -104,89 +104,73 @@
                                                         <i class="fa fa-pencil"></i>
                                                     </div>
                                                 </div>
-                                                  @error('description_en')
-                                                      <span class="text text-danger">{{ $message }}</span>
-                                                   @enderror
-                                                </div>
-                                           </div>
-                                           <div class="col-12">
-                                               <h2>Gallary</h2>
-                                                      <button type="button" class="btn btn-sm btn-primary" id="addRow">
-                                                         <i class="fa fa-plus text-white"></i>Add Photo
-                                                     </button>
-                                                      <div class="table-responsive p-3 mb-3">
-                                                            <table id="kt_create_new_custom_fields" class="table fw-bold">
-                                                                <thead class="thead-mute">
-                                                                     <tr class="text-start">
-                                                                          <th>{{ __('dashboard.table image') }}</th>
-                                                                          <th></th>
-                                                                          <th scope="col" class="text-end">{{ __('remove') }}
-                                                                         </th>
-                                                                    </tr>
-                                                               </thead>
-                                                                 <tbody id="newRow">
-                                                                        @foreach ($service->galary as $photo)
-                                                                          <tr id="inputFormRow">
-                                                                               <td>
-                                                                                   <input type="file" class="form-control"
-                                                                                      name="galary[]" />
-                                                                               </td>
-                                                                               <td>
-                                                                                  <div style="padding:10px;">
-                                                                                     <img src="{{ asset('dashboardAssets/images/services/'.$photo->photo) }}"
-                                                                                        style="width:50px;height:50px;">
-                                                                                   </div>
-                                                                              </td>
-  
-                                                                              <td class="text-end">
-                                                                                   <button type="button" class="btn btn-danger"
-                                                                                       id="removeRow">
-                                                                                        <span class="text-white"> <i
-                                                                                          class="fa fa-trash"></i></span>
-                                                                                      </button>
-                                                                             </td>
-                                                                         </tr>
-                                                                          @endforeach
-                                                                      </tbody>
-                                                                  </table>
-                                                               </div>
-                                                          </div>
+                                                @error('description_en')
+                                                    <span class="text text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
 
-                                                          <div class="col-12">
-                                                              <button type="submit"
-                                                               class="btn btn-primary mr-1 mb-1">{{ __('dashboard.submit') }}</button>
-                                                         </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="email-id-icon">{{ __('dashboard.gallery') }}
+                                                    ({{ __('dashboard.add_multiple_pictures') }}) </label>
+                                                <div class="position-relative has-icon-left">
+                                                    <input type="file" id="email-id-icon" class="form-control"
+                                                        name="photo[]" multiple>
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-image"></i>
                                                     </div>
-                                               </div>
-                                           </form>
-                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <button type="submit"
+                                                class="btn btn-primary mr-1 mb-1">{{ __('dashboard.submit') }}</button>
+                                        </div>
+                                    </div>
                                 </div>
-                           </div>
-                     </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-         </div>
-@section('script')
-<script>
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ __('dashboard.Service Images') }}</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body text-center">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>{{ __('dashboard.table image') }}</th>
+                                        <th>{{ __('dashboard.actions') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($service->galary as $key => $photo)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td><img src="{{ asset('dashboardAssets/images/services/' . $photo->photo) }}"
+                                                    style="width:78px;height:60px;"></td>
+                                            <td>
+                                                <form action='{{route('admin.serviceImages.destroy',$photo->id)}}' method='POST' class="image-{{$photo->id}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                                <span class="feather icon-trash text-danger"
+                                                    onClick="remove({{$photo->id}},'image')"></span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-$("#addRow").click(function () {
-
-var html = '';
-html += '<tr id="inputFormRow">';
-html +='<td><input type="file" class="form-control form-control-solid" name="galary[]"  />';
-html +='</td>';
-html+='<td></td><td><button type="button" class="btn btn-danger" id ="removeRow">';
-html+=' <span class="text-white"> <i class="fa fa-trash"></i></span> </button>';
-html +='</td></tr>';
-
-$('#newRow').append(html);
-    $(document).on('click', '#removeRow', function (){
-       $(this).closest('#inputFormRow').remove();
-   });
-});
-
-$(document).on('click', '#removeRow', function (){
-   $(this).closest('#inputFormRow').remove();
-});
-</script>
-    @endsection
 </x-dashboard.layouts.master>

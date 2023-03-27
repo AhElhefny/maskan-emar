@@ -344,9 +344,11 @@ return [
     'gallery title' => 'عنوان معرض الاعمال',
     'Our Services' => 'خدماتنا',
     'services title' => 'عنوان خدماتنا',
+    'Service Images' => 'صور الخدمة',
     'rates list' => 'قائمة التقييمات',
     'add rate' => 'اضف تقييم',
     'edit rate' => 'تعديل التقييم',
     'rateus'=>'تقييمنا',
+    'add_multiple_pictures'=>'اضف مجموعة صور',
 
 ];

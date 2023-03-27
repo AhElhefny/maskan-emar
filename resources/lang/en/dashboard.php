@@ -346,9 +346,11 @@ return [
     'gallery title' => 'Gallery Title',
     'Our Services' => 'Our Services',
     'services title' => 'Services Title',
+    'Service Images' => 'Service Images',
     'rates list' => 'Rates List',
     'add rate' => 'Add Rate',
     'edit rate' => 'Edit Rate',
     'rateus'=>'Rate Us',
+    'add_multiple_pictures'=>'Upload Multiple Pictures',
 
 ];
