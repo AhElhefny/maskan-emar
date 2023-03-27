@@ -19,7 +19,7 @@
                         <figure><img src="{{ $team->image }}" alt="Image">
                             <figcaption>
                                 <h4><span>{{$firstname}}</span> {{$name??null}}</h4>
-                                <small>{{$team->job}}</small>
+                                <small>{{$team->job_en}}</small>
                                 <ul>
                                     <li><i class="fa fa-mobile-alt"></i> {{$team->phone}}</li>
                                     {{-- <li><a href="{{$team->linkedin}}" target="_blank"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
