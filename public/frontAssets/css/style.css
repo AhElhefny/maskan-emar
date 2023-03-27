@@ -2313,7 +2313,7 @@ button[type=submit] {
   margin-bottom: 40px;
   opacity: 0.7;
 }
-.sales-team figure figcaption small:after {
+/* .sales-team figure figcaption small:after {
   content: "";
   width: 30px;
   height: 1px;
@@ -2322,7 +2322,7 @@ button[type=submit] {
   margin-left: 10px;
   margin-bottom: 4px;
   opacity: 0.7;
-}
+} */
 .sales-team figure figcaption ul {
   display: block;
   margin: 0;
