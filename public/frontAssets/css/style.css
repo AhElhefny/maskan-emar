@@ -2309,13 +2309,13 @@ button[type=submit] {
 .sales-team figure figcaption small {
   display: block;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 40px;
   opacity: 0.7;
 }
 .sales-team figure figcaption small:after {
   content: "";
-  width: 50px;
+  width: 30px;
   height: 1px;
   background: #3d4451;
   display: inline-block;
