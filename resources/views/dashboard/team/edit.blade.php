@@ -78,11 +78,11 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label
-                                                    for="first-name-icon">{{ __('dashboard.table job') . __('dashboard.in english') }}</label>
+                                                    for="first-name-icon">{{ __('dashboard.table job') }}</label>
                                                 <div class="position-relative has-icon-left">
                                                     <input type="text" id="first-name-icon" class="form-control"
                                                         name="job_en" value="{{ old('job_en', $team->job_en) }}"
-                                                        placeholder="{{ __('dashboard.table job') . __('dashboard.in english') }}">
+                                                        placeholder="{{ __('dashboard.table job') }}">
                                                     <div class="form-control-position">
                                                         <i class="feather icon-grid"></i>
                                                     </div>
