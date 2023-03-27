@@ -20,6 +20,7 @@ class CreateTeamsTable extends Migration
             $table->string('linkedin')->nullable();
             $table->string('website')->nullable();
             $table->string('facebook')->nullable();
+            $table->string('phone')->nullable();
             $table->text('job_ar')->nullable();
             $table->text('job_en')->nullable();
             $table->string('image')->nullable();

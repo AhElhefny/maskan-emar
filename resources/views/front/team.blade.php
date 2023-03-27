@@ -21,8 +21,9 @@
                                 <h4><span>{{$firstname}}</span> {{$name??null}}</h4>
                                 <small>{{$team->job}}</small>
                                 <ul>
-                                    <li><a href="{{$team->linkedin}}" target="_blank"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
-                                    <li><a href="{{$team->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                                    <li><i class="fa fa-mobile-alt"></i> {{$team->phone}}</li>
+                                    {{-- <li><a href="{{$team->linkedin}}" target="_blank"><i class="fab fa-linkedin-in"></i>LinkedIn</a></li>
+                                    <li><a href="{{$team->facebook}}" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a></li> --}}
                                 </ul>
                             </figcaption>
                         </figure>

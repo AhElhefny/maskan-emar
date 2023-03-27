@@ -76,11 +76,11 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label
-                                                    for="first-name-icon">{{ __('dashboard.table job') . __('dashboard.in english') }}</label>
+                                                    for="first-name-icon">{{ __('dashboard.table job')  }}</label>
                                                 <div class="position-relative has-icon-left">
                                                     <input type="text" id="first-name-icon" class="form-control"
                                                         name="job_en"
-                                                        placeholder="{{ __('dashboard.table job') . __('dashboard.in english') }}">
+                                                        placeholder="{{ __('dashboard.table job') }}">
                                                     <div class="form-control-position">
                                                         <i class="feather icon-grid"></i>
                                                     </div>
@@ -145,6 +145,20 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label
+                                                    for="first-name-icon">{{ __('dashboard.table phone') }}</label>
+                                                <div class="position-relative has-icon-left">
+                                                    <input type="text" id="first-name-icon" class="form-control"
+                                                        name="phone"
+                                                        placeholder="{{ __('dashboard.table phone') }}">
+                                                    <div class="form-control-position">
+                                                        <i class="feather icon-phone"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      {{--   <div class="col-12">
+                                            <div class="form-group">
+                                                <label
                                                     for="first-name-icon">{{ __('dashboard.linkedIn link') }}</label>
                                                 <div class="position-relative has-icon-left">
                                                     <input type="url" id="first-name-icon" class="form-control"
@@ -170,7 +184,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-12">
+                                        <div class="col-12">
                                                       <div class="form-group">
                                                            <label for="first-name-icon">{{__('dashboard.website link')}}</label>
                                                              <div class="position-relative has-icon-left">
