@@ -9,6 +9,7 @@ use App\Models\Team;
 use App\Models\Rate;
 use App\Models\Media;
 use App\Http\Controllers\Controller;
+use App\Models\CategoryOfMedia;
 use Illuminate\Http\Request;
 
 class maskanHomeController extends Controller
@@ -16,7 +17,7 @@ class maskanHomeController extends Controller
 
     public function index()
     {
-       
+
         $services = Service::take(6)->get();
         $rates= Rate::get();
         $sponsors = Group::take(6)->get();
@@ -34,28 +35,33 @@ class maskanHomeController extends Controller
 
     public function serviceDetails($id)
     {
-        
+
         $service = Service::find($id);
 
         if (!$service) {
 
             return back()->with(['success' => __('dashboard.something went wrong')]);
         }
-        
+
         return view('front.serviceDetails', ['service' => $service]);
     }
 
     public function team()
     {
         $teams = Team::all();
-        
+
         return view('front.team', ['teams' => $teams]);
     }
 
-    public function gallery()
+    public function gallery(Request $request)
     {
-        $gallery = Media::all();
-        return view('front.gallery',['galleries' => $gallery]);
+        $gallery = Media::with(['category'])->when($request->filter??null,function($q)use($request){
+            $q->whereHas('category',function($q)use($request){
+                $q->where('name_en','like','%'.$request->filter.'%')->orWhere('name_ar','like','%'.$request->filter.'%');
+            });
+        })->get();
+        $cats = CategoryOfMedia::all();
+        return view('front.gallery',['galleries' => $gallery,'cats' => $cats]);
     }
 
     public function sponsors()
