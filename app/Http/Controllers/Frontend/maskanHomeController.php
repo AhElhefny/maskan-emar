@@ -57,7 +57,7 @@ class maskanHomeController extends Controller
     {
         $gallery = Media::with(['category'])->when($request->filter??null,function($q)use($request){
             $q->whereHas('category',function($q)use($request){
-                $q->where('name_en','like','%'.$request->filter.'%')->orWhere('name_ar','like','%'.$request->filter.'%');
+                $q->where('name_en',$request->filter)->orWhere('name_ar',$request->filter);
             });
         })->get();
         $cats = CategoryOfMedia::all();
