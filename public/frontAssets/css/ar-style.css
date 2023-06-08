@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
 font-family: ar-font;
 src: url(../fonts/ar/ar.ttf);
-}
+} */
 *{
     font-family: ar-font !important;
 }

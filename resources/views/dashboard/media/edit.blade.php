@@ -42,13 +42,14 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="first-name-icon">{{ __('dashboard.category') }}</label>
-                                                <select class="form-control" name="name_en">
-                                                    <option value="interior"  {{$data->name_en == 'interior'?'selected':''}}>{{__('dashboard.interior')}}</option>
-                                                    <option value="building" {{$data->name_en == 'building'?'selected':''}}>{{__('dashboard.building')}}</option>
-                                                    <option value="spaces" {{$data->name_en == 'spaces'?'selected':''}}>{{__('dashboard.spaces')}}</option>
+                                                <select class="form-control" name="category_id">
+                                                    @foreach ($cats as $cat)
+                                                        <option value="{{$cat->id}}" {{$cat->id == $data->category_id?'selected':''}}>{{$cat->name}}</option>
+                                                    @endforeach
+                                                    
                                                 </select>
                                                 </div>
-                                                @error('name_en')
+                                                @error('category_id')
                                                     <span class="text text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

@@ -1,26 +1,27 @@
 <?php
 
 
-use App\Http\Controllers\Dashboard\AboutUsController;
-use App\Http\Controllers\Dashboard\AuthController;
-use App\Http\Controllers\Dashboard\ContactUsController;
-use App\Http\Controllers\Dashboard\GenegralSettingController;
-use App\Http\Controllers\Dashboard\GroupController;
-use App\Http\Controllers\Dashboard\HeaderFeatureGroupController;
-use App\Http\Controllers\Dashboard\NotificationsController;
-use App\Http\Controllers\Dashboard\OurWorkController;
-use App\Http\Controllers\Dashboard\RolesController;
-use App\Http\Controllers\Dashboard\ServiceController;
-use App\Http\Controllers\Dashboard\TeamController;
-use App\Http\Controllers\Dashboard\TermsConditionsController;
-use App\Http\Controllers\Dashboard\CustomerReviewController;
-use App\Http\Controllers\Dashboard\MediaController;
-use App\Http\Controllers\Dashboard\UserController;
-use App\Http\Controllers\Dashboard\OurRatesController;
-use App\Http\Controllers\Frontend\maskanHomeController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Dashboard\AuthController;
+use App\Http\Controllers\Dashboard\TeamController;
+use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\CategoryOfMediaController;
+use App\Http\Controllers\Dashboard\GroupController;
+use App\Http\Controllers\Dashboard\MediaController;
+use App\Http\Controllers\Dashboard\RolesController;
+use App\Http\Controllers\Dashboard\AboutUsController;
+use App\Http\Controllers\Dashboard\OurWorkController;
+use App\Http\Controllers\Dashboard\ServiceController;
+use App\Http\Controllers\Dashboard\OurRatesController;
+use App\Http\Controllers\Dashboard\ContactUsController;
+use App\Http\Controllers\Frontend\maskanHomeController;
+use App\Http\Controllers\Dashboard\NotificationsController;
+use App\Http\Controllers\Dashboard\CustomerReviewController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\GenegralSettingController;
+use App\Http\Controllers\Dashboard\TermsConditionsController;
+use App\Http\Controllers\Dashboard\HeaderFeatureGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
                    Route::get('manage','generalSettings')->name('generalSetting.index');
                    Route::post('store','store')->name('generalSetting.store');
                 });
+                Route::get('media/categories',[CategoryOfMediaController::class,'index'])->name('media.category.index');
+                Route::post('media/categories/store',[CategoryOfMediaController::class,'store'])->name('media.category.store');
+                Route::get('media/category/{category}/edit',[CategoryOfMediaController::class,'edit'])->name('media.category.edit');
+                Route::put('media/category/{category}/update',[CategoryOfMediaController::class,'update'])->name('media.category.update');
+
 
                 Route::resources([
 

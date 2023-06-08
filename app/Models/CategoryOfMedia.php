@@ -1,22 +1,21 @@
 <?php
 
 namespace App\Models;
-use App\Models\CategoryOfMedia;
+
+use App\Models\Media;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\services\DefaultModelAttributesTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Media extends Model
+class CategoryOfMedia extends Model
 {
     use HasFactory;
     use DefaultModelAttributesTrait;
-
+    
     protected $guarded = [''];
-    public $folder ='media';
+    protected $appends=['name'];
 
-
-    public function category(){
-        return $this->belongsTo(CategoryOfMedia::class);
+    public function media(){
+        return $this->hasMany(Media::class);
     }
-
 }

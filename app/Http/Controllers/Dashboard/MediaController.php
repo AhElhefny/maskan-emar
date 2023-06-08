@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
+
 use App\Http\services\HelperTrait;
 use App\Http\Controllers\Controller;
+use App\Models\CategoryOfMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -18,91 +20,83 @@ class MediaController extends Controller
     public function index()
     {
 
-        if (\request()->ajax()){
+        if (\request()->ajax()) {
 
-            $media = Media::all();
+            $media = Media::with(['category'])->get();
 
             return DataTables::of($media)->make(true);
         }
 
-         return view('dashboard.media.index');
+        return view('dashboard.media.index');
     }
 
     public function create()
     {
-
-        return view('dashboard.media.create');
-
+        $cats = CategoryOfMedia::all();
+        return view('dashboard.media.create',['cats' => $cats]);
     }
 
     public function store(Request $request)
     {
 
         $rules = [
-            'image' => ['required','image'],
-            'name_en' => ['required',Rule::in(['interior','building','spaces'])]
+            'image' => ['required', 'image'],
+            'category_id' => ['required', Rule::exists('category_of_media', 'id')]
         ];
 
-        $validator = Validator::make($request->all(),$rules);
-        if($validator->fails()){
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
             return back()->withInput()->withErrors($validator->errors());
         }
         $data = $request->except(['_token']);
-        if ($request->name_en == 'spaces'){
-            $data['name_ar'] = 'مساحات';
-        }elseif ($request->name_en == 'building'){
-            $data['name_ar'] = 'مباني';
-        }else{
-            $data['name_ar'] = 'داخلي';
-        }
 
-        if($request->file('image')){
+        if ($request->file('image')) {
 
-            $data['image'] = $this->storeImage($request->file('image'),'media');
+            $data['image'] = $this->storeImage($request->file('image'), 'media');
         }
 
         Media::create($data);
 
-        return redirect()->route('admin.media.index')->with(['success'=>__('dashboard.item updated successfully')]);
-
+        return redirect()->route('admin.media.index')->with(['success' => __('dashboard.item updated successfully')]);
     }
 
-
-    public function show($id)
-    {
-        //
-    }
 
     public function edit($id)
     {
 
-        $data= Media::find($id);
+        $data = Media::find($id);
+        if (!$data) {
+            return back()->with(['success' => __('dashboard.no such data with this id')]);
+        }
+        $cats = CategoryOfMedia::all();
 
-        return view('dashboard.media.edit',compact('data'));
-
+        return view('dashboard.media.edit',['cats' => $cats,'data' => $data]);
     }
 
-    public function update(Request $request, Media $media)
+    public function update(Request $request, $id)
     {
 
         $rules = [
-            'name_en' => ['required',Rule::in(['interior','building','spaces'])]
+            'category_id' => ['required', Rule::exists('category_of_media', 'id')]
         ];
 
-        $validator = Validator::make($request->all(),$rules);
-        if($validator->fails()){
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
             return back()->withInput()->withErrors($validator->errors());
         }
         $data = $request->except(['_token']);
 
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
-              $data['image'] = $this->storeImage($request->file('image'),$media->folder);
-         }
+            $data['image'] = $this->storeImage($request->file('image'), 'media');
+        }
+        $media = Media::find($id);
+        if (!$media) {
+            return back()->with(['success' => __('dashboard.no such data with this id')]);
+        }
+        $media->update($data);
 
-         $media->update($data);
-
-         return redirect()->route('admin.media.index')->with(['success'=>__('dashboard.item updated successfully')]);
+        return redirect()->route('admin.media.index')->with(['success' => __('dashboard.item updated successfully')]);
     }
 
     public function destroy(Media $media)
@@ -110,8 +104,8 @@ class MediaController extends Controller
 
         $media->delete();
 
-        return back()->with(['success'=>__('dashboard.item deleted successfully')]);
+        return back()->with(['success' => __('dashboard.item deleted successfully')]);
     }
 
-
+    
 }

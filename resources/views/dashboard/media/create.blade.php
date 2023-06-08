@@ -40,33 +40,35 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="first-name-icon">{{ __('dashboard.category') }}</label>
-                                                <select class="form-control" name="name_en">
-                                                    <option value="interior">{{__('dashboard.interior')}}</option>
-                                                    <option value="building">{{__('dashboard.building')}}</option>
-                                                    <option value="spaces">{{__('dashboard.spaces')}}</option>
+                                                <select class="form-control" name="category_id">
+                                                    @foreach ($cats as $cat)
+                                                        <option value="{{ $cat->id }}">{{ $cat->name }}
+                                                        </option>
+                                                    @endforeach
+
                                                 </select>
-                                                </div>
-                                                @error('name_en')
-                                                    <span class="text text-danger">{{ $message }}</span>
-                                                @enderror
                                             </div>
-                                        </div>
-
-
-                                        <div class="col-12">
-                                            <button type="submit"
-                                                class="btn btn-primary mr-1 mb-1">{{ __('dashboard.submit') }}</button>
-                                            <button type="reset"
-                                                class="btn btn-outline-warning mr-1 mb-1">{{ __('dashboard.reset') }}</button>
+                                            @error('category_id')
+                                                <span class="text text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
+
+
+                                    <div class="col-12">
+                                        <button type="submit"
+                                            class="btn btn-primary mr-1 mb-1">{{ __('dashboard.submit') }}</button>
+                                        <button type="reset"
+                                            class="btn btn-outline-warning mr-1 mb-1">{{ __('dashboard.reset') }}</button>
+                                    </div>
                                 </div>
-                            </form>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </x-dashboard.layouts.master>

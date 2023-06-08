@@ -9,7 +9,10 @@
                 <small><a>{{GeneralSetting::getValueForKey('contact_mail')}}</a></small>
             </div>
             <!-- end phone -->
-            <div class="language"> <a href="{{LaravelLocalization::getLocalizedURL('en')}}">EN</a> <a href="{{LaravelLocalization::getLocalizedURL('ar')}}">AR</a> </div>
+            <div class="language">
+                 {{-- <a href="{{LaravelLocalization::getLocalizedURL('en')}}">EN</a>
+                  <a href="{{LaravelLocalization::getLocalizedURL('ar')}}">AR</a> --}}
+                 </div>
             <!-- end language -->
             <div class="hamburger"> <span></span> <span></span> <span></span><span></span> </div>
             <!-- end hamburger -->

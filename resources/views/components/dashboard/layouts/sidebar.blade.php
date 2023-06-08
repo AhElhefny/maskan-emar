@@ -52,6 +52,8 @@
 
               <li class=" nav-item"><a href="#"><i class="feather icon-briefcase"></i><span class="menu-title" data-i18n="Ecommerce">{{__('dashboard.media')}}</span></a>
                    <ul class="menu-content">
+                        <li class="{{Route::is('admin.media.category.index')? 'active':''}}"><a href="{{route('admin.media.category.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">{{__('dashboard.categories')}}</span></a>
+                       </li>
                         <li class="{{Route::is('admin.media.index')? 'active':''}}"><a href="{{route('admin.media.index')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">{{__('dashboard.media')}}</span></a>
                        </li>
                        <li class="{{Route::is('admin.media.create')? 'active':''}}"><a href="{{route('admin.media.create')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">{{__('dashboard.add media')}}</span></a>

@@ -66,7 +66,7 @@ class GenegralSettingController extends Controller
 
         if ($request->has('background')){
             $rules = [
-                'rate_video' => ['required','mimes:mp4,ogx,oga,ogv,ogg,webm','max:20000'],
+                'rate_video' => [Rule::requiredIf(GeneralSetting::getValueForKey('rate_video') == null),'mimes:mp4,ogx,oga,ogv,ogg,webm','max:20000'],
                 'pageHome_about_image3' => [Rule::requiredIf(GeneralSetting::getValueForKey('pageHome_about_image3') == null),'image'],
                 'pages_header_image4' => [Rule::requiredIf(GeneralSetting::getValueForKey('pages_header_image4') == null),'image'],
             ];

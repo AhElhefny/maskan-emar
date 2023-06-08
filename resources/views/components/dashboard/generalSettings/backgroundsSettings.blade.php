@@ -13,7 +13,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="rate_video">Rate Video</label>
-                                <input type="file" class="form-control" name="rate_video" required >
+                                <input type="file" class="form-control" name="rate_video" {{GeneralSetting::getValueForKey('rate_video')?:'required'}} >
                                 @error('rate_video')
                                 <span class="text-danger">{{$message}}</span>
                                 @enderror
