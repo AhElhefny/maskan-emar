@@ -33,7 +33,7 @@ class MediaController extends Controller
     public function create()
     {
         $cats = CategoryOfMedia::all();
-        return view('dashboard.media.create',['cats' => $cats]);
+        return view('dashboard.media.create', ['cats' => $cats]);
     }
 
     public function store(Request $request)
@@ -70,12 +70,15 @@ class MediaController extends Controller
         }
         $cats = CategoryOfMedia::all();
 
-        return view('dashboard.media.edit',['cats' => $cats,'data' => $data]);
+        return view('dashboard.media.edit', ['cats' => $cats, 'data' => $data]);
     }
 
     public function update(Request $request, $id)
     {
-
+        $media = Media::find($id);
+        if (!$media) {
+            return back()->with(['success' => __('dashboard.no such data with this id')]);
+        }
         $rules = [
             'category_id' => ['required', Rule::exists('category_of_media', 'id')]
         ];
@@ -90,10 +93,7 @@ class MediaController extends Controller
 
             $data['image'] = $this->storeImage($request->file('image'), 'media');
         }
-        $media = Media::find($id);
-        if (!$media) {
-            return back()->with(['success' => __('dashboard.no such data with this id')]);
-        }
+
         $media->update($data);
 
         return redirect()->route('admin.media.index')->with(['success' => __('dashboard.item updated successfully')]);
@@ -106,6 +106,4 @@ class MediaController extends Controller
 
         return back()->with(['success' => __('dashboard.item deleted successfully')]);
     }
-
-    
 }

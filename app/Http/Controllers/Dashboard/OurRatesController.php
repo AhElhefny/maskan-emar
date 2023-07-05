@@ -18,12 +18,12 @@ class OurRatesController extends Controller
     public function index()
     {
 
-       if (\request()->ajax()) {
+        if (\request()->ajax()) {
 
-           $rates = Rate::get();
+            $rates = Rate::get();
 
-           return DataTables::of($rates)->make(true);
-       }
+            return DataTables::of($rates)->make(true);
+        }
 
         return view('dashboard.rates.index');
     }
@@ -36,44 +36,42 @@ class OurRatesController extends Controller
 
     public function store(Request $request)
     {
-    
+
         $rules = [
 
-            'image' => ['image','mimes:png', 'max:2048'],
+            'image' => ['image', 'mimes:png', 'max:2048'],
 
         ];
-    
-        $validator = Validator::make($request->all(),$rules);
 
-        if($validator->fails()){
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
 
             return back()->withInput()->withErrors($validator->errors());
         }
 
         $data = $request->except(['_token']);
 
-        if($request->file('image')){
+        if ($request->file('image')) {
 
-            $data['image'] = $this->storeImage($request->file('image'),'rates');
+            $data['image'] = $this->storeImage($request->file('image'), 'rates');
         }
 
-        $rate =Rate::create($data);
+        $rate = Rate::create($data);
 
         return redirect()->route('admin.rates.index')->with(['success' => __('dashboard.item added successfully')]);
-
     }
 
     public function show(Rate $rate)
     {
 
-        return view('dashboard.rates.show',['rate'=>$rate]);
+        return view('dashboard.rates.show', ['rate' => $rate]);
     }
 
     public function edit(Rate $rate)
     {
 
-        return view('dashboard.rates.edit',compact('rate'));
-
+        return view('dashboard.rates.edit', compact('rate'));
     }
 
     public function update(Request $request, Rate $rate)
@@ -81,21 +79,20 @@ class OurRatesController extends Controller
 
         $data = $request->except(['_token']);
 
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
 
-            $data['image'] = $this->storeImage($request->file('image'),$rate->folder);
+            $data['image'] = $this->storeImage($request->file('image'), $rate->folder);
         }
 
         $rate->update($data);
 
-        return redirect()->route('admin.rates.index')->with(['success'=>__('dashboard.item updated successfully')]);
+        return redirect()->route('admin.rates.index')->with(['success' => __('dashboard.item updated successfully')]);
     }
 
     public function destroy(Rate $rate)
     {
-          $rate->delete();
+        $rate->delete();
 
-         return back()->with(['success'=>__('dashboard.item deleted successfully')]);
+        return back()->with(['success' => __('dashboard.item deleted successfully')]);
     }
-
 }

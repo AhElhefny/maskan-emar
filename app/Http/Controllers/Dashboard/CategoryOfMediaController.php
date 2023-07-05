@@ -57,7 +57,7 @@ class CategoryOfMediaController extends Controller
         }
 
         $rules = [
-            'name_ar' => ['required', 'min:3', Rule::unique('category_of_media', 'name_ar')],
+            'name_ar' => ['required', 'min:3', Rule::unique('category_of_media', 'name_ar')],//TODO ignore id
             'name_en' => ['required', 'min:3', Rule::unique('category_of_media', 'name_en')]
         ];
 

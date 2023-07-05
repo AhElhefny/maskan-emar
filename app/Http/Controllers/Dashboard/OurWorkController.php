@@ -16,30 +16,30 @@ class OurWorkController extends Controller
     public function index()
     {
         $parents = OurWork::parents()->get();
-        if (\request()->ajax()){
+        if (\request()->ajax()) {
             return DataTables::of(OurWork::all())->make(true);
         }
-        return view('dashboard.OurWorks.index',['parents' => $parents]);
+        return view('dashboard.OurWorks.index', ['parents' => $parents]);
     }
 
     public function store(Request $request)
     {
 
         $rules = [
-            'image' => ['image','mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'parent' => ['nullable',Rule::exists('our_works','id')],
-            'title_ar' => ['required','string','min:5'],
-            'title_en' => ['required','string','min:5'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'parent' => ['nullable', Rule::exists('our_works', 'id')],
+            'title_ar' => ['required', 'string', 'min:5'],
+            'title_en' => ['required', 'string', 'min:5'],
         ];
 
-        $validator = Validator::make($request->except(['_token']),$rules);
-        if($validator->fails()){
+        $validator = Validator::make($request->except(['_token']), $rules);
+        if ($validator->fails()) {
             return back()->withInput()->withErrors($validator->errors());
         }
 
-        $data = $request->except(['_token','image']);
-        if($request->hasFile('image')){
-            $data['image'] = $this->storeImageByPath($request->file('image'),'frontAssets/images/works');
+        $data = $request->except(['_token', 'image']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $this->storeImageByPath($request->file('image'), 'frontAssets/images/works');
         }
         OurWork::create($data);
         return redirect()->route('admin.works.index')->with(['success' => __('dashboard.item added successfully')]);
@@ -53,37 +53,37 @@ class OurWorkController extends Controller
     public function edit($id)
     {
 
-        $parents = OurWork::parents()->where('id','!=',$id)->get();
+        $parents = OurWork::parents()->where('id', '!=', $id)->get();
         $ourWork = OurWork::find($id);
 
-        if (!$ourWork){
+        if (!$ourWork) {
             return redirect()->route('admin.works.index')->with(['success' => __('dashboard.something went wrong')]);
         }
-        return view('dashboard.OurWorks.index',['work' => $ourWork,'parents' => $parents]);
+        return view('dashboard.OurWorks.index', ['work' => $ourWork, 'parents' => $parents]);
     }
 
     public function update(Request $request, $id)
     {
         $ourWork = OurWork::find($id);
 
-        if (!$ourWork){
+        if (!$ourWork) {
             return redirect()->route('admin.works.index')->with(['success' => __('dashboard.something went wrong')]);
         }
         $rules = [
-            'image' => ['nullable','image'],
-            'parent' => ['nullable',Rule::exists('our_works','id')],
-            'title_ar' => ['required','string','min:5'],
-            'title_en' => ['required','string','min:5'],
+            'image' => ['nullable', 'image'],
+            'parent' => ['nullable', Rule::exists('our_works', 'id')],
+            'title_ar' => ['required', 'string', 'min:5'],
+            'title_en' => ['required', 'string', 'min:5'],
         ];
 
-        $validator = Validator::make($request->except(['_token']),$rules);
-        if($validator->fails()){
+        $validator = Validator::make($request->except(['_token']), $rules);
+        if ($validator->fails()) {
             return back()->withInput()->withErrors($validator->errors());
         }
 
-        $data = $request->except(['_token','image']);
-        if($request->hasFile('image')){
-            $data['image'] = $this->storeImageByPath($request->file('image'),'frontAssets/images/works');
+        $data = $request->except(['_token', 'image']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $this->storeImageByPath($request->file('image'), 'frontAssets/images/works');
         }
         $ourWork->update($data);
         return redirect()->route('admin.works.index')->with(['success' => __('dashboard.item updated successfully')]);

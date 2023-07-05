@@ -10,13 +10,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <ul
-                        style="width: 100%;display: flex;flex-wrap: wrap;margin-bottom: 50px;">
-                        <li style ="{{app()->getLocale() == 'ar'? 'margin-left :30px;':'margin-right:30px;'}}"><a href="{{ url()->current()}}"
-                                class="{{!request('filter')?'badge bg-success':''}}">{{ __('dashboard.all area') }}</a></li>
+                    <ul style="width: 100%;display: flex;flex-wrap: wrap;margin-bottom: 50px;">
+                        <li style="{{ app()->getLocale() == 'ar' ? 'margin-left :30px;' : 'margin-right:30px;' }}"><a
+                                href="{{ url()->current() }}"
+                                class="{{ !request('filter') ? 'badge bg-success' : '' }}">{{ __('dashboard.all area') }}</a>
+                        </li>
+
                         @foreach ($cats as $cat)
-                            <li style ="{{app()->getLocale() == 'ar'? 'margin-left :30px;':'margin-right:30px;'}}">
-                                <a class="{{request('filter')==$cat->name_en?'badge bg-success':''}}" href="{{ url()->current() . '?filter=' . $cat->name_en }}">{{ $cat->name }}</a></li>
+                            <li
+                                style="{{ app()->getLocale() == 'ar' ? 'margin-left :30px;' : 'margin-right:30px;' }}">
+                                <a class="{{ request('filter') == $cat->id ? 'badge bg-success' : '' }}"
+                                    href="{{ url()->current() . '?filter=' . $cat->id }}">{{ $cat->name }}</a>
+                            </li>
                         @endforeach
 
                         {{-- <li><a href="javascript:void(0);" data-filter=".one">{{__('dashboard.interior')}}</a></li>

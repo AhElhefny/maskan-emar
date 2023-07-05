@@ -16,12 +16,12 @@ class ContactUsController extends Controller
 
     public function index()
     {
-        if (\request()->ajax()){
+        if (\request()->ajax()) {
 
             return DataTables::of(ContactUs::all())->make(true);
         }
 
-         return view('dashboard.contact-us.index');
+        return view('dashboard.contact-us.index');
     }
 
     public function create()
@@ -32,20 +32,20 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name' => ['required','min:3','max:100'],
-            'email' => ['required','email','max:100'],
-            'subject' => ['required','min:10','max:100'],
-            'feedBack' => ['required','min:10'],
+            'name' => ['required', 'min:3', 'max:100'],
+            'email' => ['required', 'email', 'max:100'],
+            'subject' => ['required', 'min:10', 'max:100'],
+            'feedBack' => ['required', 'min:10'],
         ];
-        $validator = Validator::make($request->all(),$rules);
-        if ($validator->fails()){
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()) {
             return back()->withInput()->withErrors($validator->errors());
         }
         $data = $request->except(['_token']);
 
         ContactUs::create($data);
 
-        return back()->with(['success'=>'']);
+        return back()->with(['success' => '']);
     }
 
 
@@ -57,10 +57,10 @@ class ContactUsController extends Controller
 
     public function settingStore(Request $request)
     {
-        foreach ($request->type as $index=>$type){
-            GeneralSetting::updateOrCreate(['key' => $index],['value' => $type]);
+        foreach ($request->type as $index => $type) {
+            GeneralSetting::updateOrCreate(['key' => $index], ['value' => $type]);
         }
-        return back()->with(['success'=>__('dashboard.item updated successfully')]);
+        return back()->with(['success' => __('dashboard.item updated successfully')]);
     }
 
     public function update(Request $request, ContactUs $contactUs)
@@ -73,7 +73,6 @@ class ContactUsController extends Controller
 
         $contactUs->delete();
 
-        return back()->with(['success'=>__('dashboard.item deleted successfully')]);
-
+        return back()->with(['success' => __('dashboard.item deleted successfully')]);
     }
 }
