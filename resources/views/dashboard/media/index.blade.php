@@ -69,7 +69,7 @@
                     columns: [{
                             data: 'category',
                             render:function(data){
-                                return data.name
+                                return data?data.name:'-'
                             }
                         },
                         {
