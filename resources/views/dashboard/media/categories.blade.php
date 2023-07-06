@@ -35,7 +35,7 @@
                                                     for="first-name-icon">{{ __('dashboard.category') . __('dashboard.in english') }}</label>
                                                 <input class="form-control" name="name_en"
                                                     placeholder="{{ __('dashboard.category') . __('dashboard.in english') }}"
-                                                    value="{{ !isset($cat) ?'': old('name_ar', $cat->name_ar) }}">
+                                                    value="{{ !isset($cat) ?'': old('name_en', $cat->name_en) }}">
                                             </div>
                                             @error('name_en')
                                                 <span class="text text-danger">{{ $message }}</span>
@@ -48,9 +48,9 @@
                                                     for="first-name-icon">{{ __('dashboard.category') . __('dashboard.in arabic') }}</label>
                                                 <input class="form-control" name="name_ar"
                                                     placeholder="{{ __('dashboard.category') . __('dashboard.in arabic') }}"
-                                                    value="{{ !isset($cat) ?'': old('name_en', $cat->name_en) }}">
+                                                    value="{{ !isset($cat) ?'': old('name_ar', $cat->name_ar) }}">
                                             </div>
-                                            @error('name_en')
+                                            @error('name_ar')
                                                 <span class="text text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>

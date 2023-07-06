@@ -27,8 +27,8 @@ class CategoryOfMediaController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name_ar' => ['required', 'min:3'],
-            'name_en' => ['required', 'min:3']
+            'name_ar' => ['required', 'min:3',Rule::unique('category_of_media', 'name_ar')],
+            'name_en' => ['required', 'min:3',Rule::unique('category_of_media', 'name_en')]
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -57,8 +57,8 @@ class CategoryOfMediaController extends Controller
         }
 
         $rules = [
-            'name_ar' => ['required', 'min:3', Rule::unique('category_of_media', 'name_ar')],//TODO ignore id
-            'name_en' => ['required', 'min:3', Rule::unique('category_of_media', 'name_en')]
+            'name_ar' => ['required', 'min:3', Rule::unique('category_of_media', 'name_ar')->ignore($id)],
+            'name_en' => ['required', 'min:3', Rule::unique('category_of_media', 'name_en')->ignore($id)]
         ];
 
         $validator = Validator::make($request->all(), $rules);
